@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { Button, StyleSheet, Text, View, ScrollView, TextInput, Image, Pressable } from 'react-native';
 
-const Homepage = ({navigation}) => {
+const Homepage = () => {
   return (
     <View style={styles.container}>
       <Pressable style={styles.menuButton} onPress={() => console.log('Menu button pressed')}>
         {/* You can use a menu icon or any other icon for your button */}
-        <Image source={require('../assets/favicon.png')} style={styles.menuIcon} />
+        <Image source={require('../../assets/favicon.png')} style={styles.menuIcon} />
       </Pressable>
 
       <View style={styles.imageContainer}>
-        <Image source={require('../assets/icon.png')} style={styles.mainImage} />
+        <Image source={require('../../assets/icon.png')} style={styles.mainImage} />
       </View>
     </View>
   );
