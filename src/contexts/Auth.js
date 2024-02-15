@@ -8,11 +8,8 @@ export const AuthProvider = ({ children }) => {
   const signIn = async (username, password) => {
     // Perform authentication logic and set user data
     
-    const _authData = await authService.signIn(
-      'test@email.com',
-      '12345',
-    );
-    setAuthData(_authData)
+    if (username == 'test' && password == '123' )
+    setAuthData(true)
   };
 
   const signOut = () => {
