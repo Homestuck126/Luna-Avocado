@@ -3,7 +3,7 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 
-const UserProfile = ({ user }) => {
+const FriendProfile = ({ user }) => {
   return (
     <View style={styles.userProfileContainer}>
       <View style={styles.profileBox}>
@@ -20,21 +20,21 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 10, // Add padding to separate profiles
+    padding: 10, 
   },
   profileBox: {
-    borderWidth: 1, // Add a border
-    borderColor: '#ccc', // Border color
-    borderRadius: 10, // Border radius for rounded corners
-    padding: 10, // Padding inside the box
+    borderWidth: 1,
+    borderColor: '#ccc', 
+    borderRadius: 10, 
+    padding: 10, 
     alignItems: 'center',
   },
   avatar: {
     width: 100,
     height: 100,
-    borderRadius: 50, // Assuming a circular avatar, adjust as needed
+    borderRadius: 50, 
     marginBottom: 10,
   },
 });
 
-export default UserProfile;
+export default FriendProfile;

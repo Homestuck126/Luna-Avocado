@@ -2,14 +2,14 @@
 
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import UserProfile from './UserProfile';
+import FriendProfile from './FriendProfile';
 
 const Gallery = ({ profiles }) => {
   return (
     <View style={styles.galleryContainer}>
       {profiles.map((user) => (
         <View key={user.id} style={styles.profileWrapper}>
-          <UserProfile user={user} />
+          <FriendProfile user={user} />
         </View>
       ))}
     </View>
