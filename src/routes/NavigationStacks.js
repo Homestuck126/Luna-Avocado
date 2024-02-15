@@ -26,7 +26,7 @@ export const AuthStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Login" component={LoginScreen} />
-      <Stack.Screen name="Register" component={SignInScreen} />
+      {/* //<Stack.Screen name="Register" component={SignInScreen} /> */}
     </Stack.Navigator>
   );
 };

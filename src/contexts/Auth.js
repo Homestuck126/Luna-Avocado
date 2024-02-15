@@ -1,6 +1,4 @@
 import React, {createContext, useState, useContext} from 'react';
-import {AuthData, authService} from '../services/authService.tsx';
-
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -23,7 +21,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ authData, loading, signIn, signOut }}>
+    <AuthContext.Provider value={{ authData, signIn, signOut }}>
       {children}
     </AuthContext.Provider>
   );

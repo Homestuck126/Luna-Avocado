@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, View, Alert } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View, Alert } from 'react-native';
 import { AuthProvider, useAuth } from '../contexts/Auth';
 
 const LoginScreen = () => {
