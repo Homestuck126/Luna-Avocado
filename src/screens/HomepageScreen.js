@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, StyleSheet, Text, View, ScrollView, TextInput, Image, Pressable } from 'react-native';
 
-const Homepage = ({navigation}) => {
+const Homepage = () => {
   return (
     <View style={styles.container}>
       <Pressable style={styles.menuButton} onPress={() => console.log('Menu button pressed')}>
