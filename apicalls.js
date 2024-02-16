@@ -2,9 +2,14 @@ let connectedClient, db;
 
 const server = require("./server.js");
 
-const testdb= server.connectToMDB();
+async function main() {
+    const db = await server.connectToMDB(); // Await the async function to get the database object
+    const users = await db.collection('users').find().toArray(); // Fetch all documents from 'users' collection
+    if (users.length === 0) {
+        console.log('No documents found.');
+    } else {
+        console.log(users);
+    }
+}
 
-console.log(testdb.users);
-//console.log(server.users);
-//db.listCollections();
-console.log("a")
+main().catch(console.error);

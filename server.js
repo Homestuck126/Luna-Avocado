@@ -16,40 +16,17 @@ async function connectToMDB() {
     try {
         await client.connect();
         console.log('Connected to MongoDB');
-        return client.db(); // Return the database object
+        return client.db("VirtualPetDatabase");
     } catch (err) {
         console.error('Error connecting to MongoDB:', err);
         throw err;
     }
 }
 
-
-// async function connectToMDB() {
-//     try {
-//         connectedClient = await client.connect();
-//         console.log("Connected to MongoDB");
-//     } catch(e) {
-//         console.log(e)
-//         throw e;
-//     }   finally {
-//         db = connectedClient.db("VirtualPetDatabase");
-//         return db;
-//     }
-
-// };
-
 app.listen(3000, () => {
     console.log("app is listening on port 3000")
 });
 
-
-
-//Test API Endpoint
-
-// async function getUsers(db) {
-//     const users = await db.collection('users');
-//     return users.find().toArray();
-// }
 
 async function getUsers() {
     try {
@@ -63,16 +40,14 @@ async function getUsers() {
 }
 
 app.get("/users", async (req, res) => {
-    console.log("b");
     try {
-        let collection = await db.collection("users");
-        let users = await collection.find().toArray();
-
+        const db = await connectToMDB();
+        let users = await db.collection("users").find().toArray();
         res.status(200).json(users);
     } catch(e) {
-        res.status(500).json({ error: "Users could not be returned"})
+        console.error('Error getting users:', e);
+        res.status(500).json({ error: "Users could not be returned" })
     }
-
 });
 
 
