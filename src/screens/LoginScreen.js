@@ -58,7 +58,6 @@ const styles = StyleSheet.create({
         
     },
     title : {
-        fontFamily: 'WorkSans',
     },
     button : {
 
