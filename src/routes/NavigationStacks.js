@@ -5,6 +5,7 @@ import LoginScreen from '../screens/LoginScreen.js';
 import HomepageScreen from '../screens/HomepageScreen.js';
 import ProfileScreen from '../screens/ProfileScreen.js';
 import FriendsScreen from '../screens/FriendsScreen.js';
+import FriendProfileDisplay from '../screens/FriendProfileDisplay.js';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -15,6 +16,7 @@ export const AppStack = () => {
             <Drawer.Screen name="Homepage" component = {HomepageScreen}></Drawer.Screen>
             <Drawer.Screen name="Friends" component={FriendsScreen}></Drawer.Screen>
             <Drawer.Screen name="Profile" component={ProfileScreen}></Drawer.Screen>
+            <Drawer.Screen name="FriendProfileDisplay" component = {FriendProfileDisplay}></Drawer.Screen>
         </Drawer.Navigator>
   );
 };

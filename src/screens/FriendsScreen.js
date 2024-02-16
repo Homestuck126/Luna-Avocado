@@ -1,9 +1,14 @@
 // FriendsScreen.js
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import ProfileListItem from '../components/ProfileListItem';
+import FriendProfileDisplay from './FriendProfileDisplay';
 
-const FriendsScreen = ({ navigation }) => {
+
+const FriendsScreen = () => {
+  const navigation = useNavigation();
+
   // Example user profiles
   const userProfiles = [
     {

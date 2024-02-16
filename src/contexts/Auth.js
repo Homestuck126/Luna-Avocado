@@ -2,13 +2,13 @@ import React, {createContext, useState, useContext} from 'react';
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [authData, setAuthData] = useState();
+  const [authData, setAuthData] = useState(false);
   //const [loading, setLoading] = useState(true);
 //FIX
   const signIn = async (username, password) => {
     // Perform authentication logic and set user data
     
-    if (username == 'test' && password == '123' )
+    if (username == 'Test' && password == '123' )
     setAuthData(true)
   };
 
