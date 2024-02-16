@@ -14,18 +14,46 @@ export const AppStack = () => {
   return (
         <Drawer.Navigator initialRouteName="Homepage">
             <Drawer.Screen name="Homepage" component = {HomepageScreen}></Drawer.Screen>
-            <Drawer.Screen name="Friends" component={FriendsScreen}></Drawer.Screen>
+            <Drawer.Screen name="Friends" component={FriendsStack} ></Drawer.Screen>
             <Drawer.Screen name="Profile" component={ProfileScreen}></Drawer.Screen>
-            <Drawer.Screen name="FriendProfileDisplay" component = {FriendProfileDisplay}></Drawer.Screen>
         </Drawer.Navigator>
   );
 };
 
 export const AuthStack = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName='Login'>
       <Stack.Screen name="Login" component={LoginScreen} />
       {/* //<Stack.Screen name="Register" component={SignInScreen} /> */}
     </Stack.Navigator>
   );
 };
+
+
+//sub app stacks
+export const FriendsStack = () => {
+  return (
+    <Stack.Navigator 
+      initialRouteName='FriendsScreen' 
+      screenOptions={{
+        headerShown: true, // Set to true to display the header by default for all screens in this stack
+      }}
+    >
+      <Stack.Screen 
+        name='FriendProfileDisplay' 
+        component = {FriendProfileDisplay}
+        options={{ 
+          headerTitle:'',
+          headerBackTitleVisible:false,
+        }}
+      />
+      <Stack.Screen 
+        name='FriendsScreen' 
+        component = {FriendsScreen}
+        options={{ 
+          'headerShown': false
+        }}
+      />
+    </Stack.Navigator>
+  )
+}

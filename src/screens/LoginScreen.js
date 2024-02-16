@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, StyleSheet, Text, TextInput, View, Alert } from 'react-native';
+import { Pressable, StyleSheet, Text, TextInput, View, Alert } from 'react-native';
 import { AuthProvider, useAuth } from '../contexts/Auth';
 
 const LoginScreen = () => {
@@ -9,7 +9,7 @@ const LoginScreen = () => {
     const handleLogin = async () => {
         try {
             await signIn(username,password);
-            console.log('Login successful');
+            console.log('No login errors');
         } catch (error){
             console.error('Login error', error);
         }
@@ -31,7 +31,15 @@ const LoginScreen = () => {
                     value={password}
                     onChangeText={(text) => setPassword(text)}
                 />
-                <Button title='Login' onPress={handleLogin} />
+                <View style={styles.buttonsContainer}>
+                    <Pressable style={styles.button} onPress={handleLogin}>
+                        <Text>Login</Text>
+                    </Pressable>
+                    <Pressable style={styles.button}>
+                        <Text>Sign Up</Text>
+                    </Pressable>
+                </View>
+                
             </View>
         </View>
     );
@@ -49,7 +57,7 @@ const styles = StyleSheet.create({
     loginbox: {
         alignItems:'center',
         justifyContent:'center',
-        aspectRatio: 2 / 1,
+        aspectRatio: 1.7 / 1,
         width:200,
         borderRadius:20,
         backgroundColor:'#fff0f5',
@@ -59,8 +67,13 @@ const styles = StyleSheet.create({
     },
     title : {
     },
+    buttonsContainer : {
+        flexDirection:'row',
+    },
     button : {
-
+        padding: 7,
+        backgroundColor:'#6495ED', //not showing blue?
+        borderRadius:10,
     }
 })
 export default LoginScreen;
