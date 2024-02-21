@@ -2,20 +2,28 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import LoginScreen from '../screens/LoginScreen.js';
-import HomepageScreen from '../screens/HomepageScreen.js';
 import ProfileScreen from '../screens/ProfileScreen.js';
 import FriendsScreen from '../screens/FriendsScreen.js';
 import FriendProfileDisplay from '../screens/FriendProfileDisplay.js';
+import MacroInputScreen from '../screens/MacroInputScreen.js';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
 export const AppStack = () => {
   return (
-        <Drawer.Navigator initialRouteName="Homepage">
-            <Drawer.Screen name="Homepage" component = {HomepageScreen}></Drawer.Screen>
-            <Drawer.Screen name="Friends" component={FriendsStack} ></Drawer.Screen>
+        <Drawer.Navigator initialRouteName="Profile">
             <Drawer.Screen name="Profile" component={ProfileScreen}></Drawer.Screen>
+            <Drawer.Screen 
+              name="MacroInput" 
+              component={MacroInputScreen}
+              options={{
+                drawerLabel:'Log Food',
+                headerTitle:'Macros',
+              }}
+            >
+            </Drawer.Screen>
+            <Drawer.Screen name="Friends" component={FriendsStack} ></Drawer.Screen>
         </Drawer.Navigator>
   );
 };
