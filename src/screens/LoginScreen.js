@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Pressable, StyleSheet, Text, TextInput, View, Alert } from 'react-native';
+import { Pressable, StyleSheet, Text, TextInput, View, Alert, SafeAreaView } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 import { AuthProvider, useAuth } from '../contexts/Auth';
 
 const LoginScreen = () => {
     const {signIn} = useAuth();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false)
     const handleLogin = async () => {
         try {
             await signIn(username,password);
@@ -14,67 +16,104 @@ const LoginScreen = () => {
             console.error('Login error', error);
         }
     }
-    
+    const toggleShowPassword = () => { 
+        setShowPassword(!showPassword); 
+    }; 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <View style={styles.loginbox}>
                 <Text style={styles.title}>Login or Sign Up</Text>
-                <TextInput
-                    style={styles.input}
-                    placeholder='username'
-                    value={username}
-                    onChangeText={(text) => setUsername(text)}
-                />
-                <TextInput
-                    style={styles.input}
-                    placeholder='password'
-                    value={password}
-                    onChangeText={(text) => setPassword(text)}
-                />
-                <View style={styles.buttonsContainer}>
-                    <Pressable style={styles.button} onPress={handleLogin}>
-                        <Text>Login</Text>
-                    </Pressable>
-                    <Pressable style={styles.button}>
-                        <Text>Sign Up</Text>
-                    </Pressable>
+                <View style={styles.inputContainer}>
+                    <TextInput
+                        style={styles.input}
+                        placeholder='username'
+                        value={username}
+                        onChangeText={(text) => setUsername(text)}
+                        autoCapitalize='none'
+                        textAlign='left'
+                    />
                 </View>
-                
+                <View style={styles.inputContainer}>
+                    <TextInput
+                        style={styles.input}
+                        placeholder='password'
+                        value={password}
+                        onChangeText={(text) => setPassword(text)}
+                        autoCapitalize='none'
+                        textAlign='left'
+                        secureTextEntry={!showPassword}
+                    />
+                    <MaterialCommunityIcons 
+                        name={showPassword ? 'eye-off' : 'eye'} 
+                        size={24} 
+                        color="#aaa"
+                        style={styles.icon} 
+                        onPress={toggleShowPassword} 
+                    /> 
+                </View>
+                <Pressable style={styles.button} onPress={handleLogin}>
+                    <Text style={styles.buttonText}>Login</Text>
+                </Pressable>
+                <Pressable style={styles.button}>
+                    <Text style={styles.buttonText}>Sign Up</Text>
+                </Pressable>
             </View>
-        </View>
+        </SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
-    container : {
-        flex:1,
-        flexDirection:'column',
-        backgroundColor:'#fff',
-        alignItems:'center',
-        justifyContent:'center',
-        paddingBottom:200,
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 20,
     },
+    inputContainer: { 
+        flexDirection: 'row', 
+        width:'80%',
+        alignItems: 'center', 
+        justifyContent: 'space-between', 
+        backgroundColor: 'white', 
+        borderRadius: 8, 
+        paddingHorizontal: 14, 
+    }, 
     loginbox: {
+        flexDirection:'column',
         alignItems:'center',
-        justifyContent:'center',
-        aspectRatio: 1.7 / 1,
-        width:200,
+        justifyContent:'space-between',
+        height:250,
+        width:350,
         borderRadius:20,
-        backgroundColor:'#fff0f5',
+        margin:20,
     },
-    input : {
-        
+    input: { 
+        height:40,
+        width:200,
+        color: '#333', 
+        paddingVertical: 10, 
+        paddingRight: 10, 
+        fontSize: 16, 
+    }, 
+    title: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        marginBottom: 20,
     },
-    title : {
-    },
-    buttonsContainer : {
-        flexDirection:'row',
+    icon: { 
+        marginLeft: 10,
     },
     button : {
-        padding: 7,
-        backgroundColor:'#6495ED', //not showing blue?
-        borderRadius:10,
-    }
+        backgroundColor: '#3498db',
+        padding: 10,
+        borderRadius: 8,
+        width: '70%',
+        alignItems: 'center',
+    },
+    buttonText: {
+        color: 'white',
+        fontSize: 16,
+    },
 })
 export default LoginScreen;
 /*

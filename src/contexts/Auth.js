@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
   const signIn = async (username, password) => {
     // Perform authentication logic and set user data
     
-    if (username == 'Test' && password == '123' )
+    if (username == 'test' && password == '123' )
     setAuthData(true)
   };
 

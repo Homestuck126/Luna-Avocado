@@ -23,7 +23,13 @@ export const AppStack = () => {
 export const AuthStack = () => {
   return (
     <Stack.Navigator initialRouteName='Login'>
-      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen 
+        name="Login" 
+        component={LoginScreen}
+        options={{
+          'headerShown':false
+        }}
+      />
       {/* //<Stack.Screen name="Register" component={SignInScreen} /> */}
     </Stack.Navigator>
   );
