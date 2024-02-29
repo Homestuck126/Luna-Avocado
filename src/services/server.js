@@ -1,10 +1,11 @@
+// src/services/server.js
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const moment = require("moment");
 
 const app = express();
-const port = 8000;
+const port = 3000;
 const cors = require("cors");
 app.use(cors());
 
@@ -24,10 +25,10 @@ mongoose
   });
 
 app.listen(port, () => {
-  console.log("Server is running on port 8000");
+  console.log("Server is running on port 27017");
 });
 
-const User = require("../models/User");
+const User = require("./models/User.js");
 
 app.post("/addUser", async (req, res) => {
   try {
@@ -60,6 +61,10 @@ app.get("/users", async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: "Failed to retrieve the users" });
   }
+});
+
+app.listen(port, () => {
+  console.log("Server is running on port 27017");
 });
 
 // const express = require("express");

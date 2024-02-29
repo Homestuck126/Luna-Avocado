@@ -15,6 +15,7 @@
     "@react-navigation/stack": "^6.3.20",
     "@types/react": "~18.2.45",
     "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.1",
     "expo": "^50.0.4",
     "expo-font": "~11.10.2",

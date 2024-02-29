@@ -1,10 +1,23 @@
-import React from 'react';
-import { SafeAreaView, Text } from 'react-native'
+import React, { useEffect, useState } from 'react';
+import { SafeAreaView, Text, ScrollView } from 'react-native';
 
 const MacroInputScreen = () => {
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:3000/users') // Ensure the URL matches your server's configuration
+            .then(response => response.json())
+            .then(data => setUsers(data))
+            .catch(error => console.error('Error fetching users:', error));
+    }, []);
+
     return (
         <SafeAreaView>
-            <Text>track macros wip</Text>
+            <ScrollView>
+                {users.map((user, index) => (
+                    <Text key={index}>{user.name} - Macros: {JSON.stringify(user.macro)}</Text>
+                ))}
+            </ScrollView>
         </SafeAreaView>
     );
 }
