@@ -27,7 +27,40 @@ app.listen(port, () => {
   console.log("Server is running on port 8000");
 });
 
-const User = require("./models/employee");
+const User = require("../models/User");
+
+app.post("/addUser", async (req, res) => {
+  try {
+    const { name, password, username, macro } = req.body;
+
+    // Create a new user
+    const newUser = new User({
+      name,
+      password,
+      username,
+      macro
+    });
+
+    await newUser.save();
+
+    res
+      .status(201)
+      .json({ message: "Employee saved successfully", employee: newEmployee });
+  } catch (error) {
+    console.log("Error creating employee", error);
+    res.status(500).json({ message: "Failed to add an employee" });
+  }
+});
+
+//endpoint to fetch all the users
+app.get("/users", async (req, res) => {
+  try {
+    const users = await User.find();
+    res.status(200).json(users);
+  } catch (error) {
+    res.status(500).json({ message: "Failed to retrieve the users" });
+  }
+});
 
 // const express = require("express");
 // const {MongoClient} = require("mongodb");
