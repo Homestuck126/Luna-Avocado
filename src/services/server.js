@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const cors = require("cors");
 app.use(cors());
 
@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 mongoose
-  .connect("mongodb+srv://puckerfishy:tamagachi@cluster0.kbfgpln.mongodb.net/", {
+  .connect("mongodb+srv://puckerfishy:tamagachi@cluster0.kbfgpln.mongodb.net/VirtualPetDatabase", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -25,7 +25,7 @@ mongoose
   });
 
 app.listen(port, () => {
-  console.log("Server is running on port 27017");
+  console.log("Server is running on port 3000");
 });
 
 const User = require("./models/User.js");
@@ -61,10 +61,6 @@ app.get("/users", async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: "Failed to retrieve the users" });
   }
-});
-
-app.listen(port, () => {
-  console.log("Server is running on port 27017");
 });
 
 // const express = require("express");

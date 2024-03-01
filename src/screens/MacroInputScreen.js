@@ -1,16 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView, Text, ScrollView } from 'react-native';
+import axios from "axios";
+import { useRouter } from "expo-router";
 
 const MacroInputScreen = () => {
     const [users, setUsers] = useState([]);
-
+    const router = useRouter();
     useEffect(() => {
-        fetch('http://localhost:3000/users') // Ensure the URL matches your server's configuration
-            .then(response => response.json())
-            .then(data => setUsers(data))
-            .catch(error => console.error('Error fetching users:', error));
+        const fetchUserData = async () => {
+          try {
+            const response = await axios.get("http://localhost:3000/users");
+            setUsers(response.data);
+          } catch (error) {
+            console.log("error fetching user data", error);
+          }
+        };
+        fetchUserData();
     }, []);
-
+    console.log(users);
     return (
         <SafeAreaView>
             <ScrollView>
