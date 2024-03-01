@@ -1,10 +1,28 @@
-import React from 'react';
-import { SafeAreaView, Text } from 'react-native'
+import React, { useEffect, useState } from 'react';
+import { SafeAreaView, Text, ScrollView } from 'react-native';
+import axios from "axios";
 
 const MacroInputScreen = () => {
+    const [users, setUsers] = useState([]);
+    useEffect(() => {
+        const fetchUserData = async () => {
+          try {
+            const response = await axios.get("http://localhost:3000/users", { timeout: 10000 });
+            setUsers(response.data);
+          } catch (error) {
+            console.log("error fetching user data", error);
+          }
+        };
+        fetchUserData();
+    }, []);
+    console.log(users);
     return (
         <SafeAreaView>
-            <Text>track macros wip</Text>
+            <ScrollView>
+                {users.map((user, index) => (
+                    <Text key={index}>{user.name} - Macros: {user.macros}</Text>
+                ))}
+            </ScrollView>
         </SafeAreaView>
     );
 }
