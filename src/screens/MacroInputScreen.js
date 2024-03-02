@@ -1,32 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import { SafeAreaView, Text, ScrollView } from 'react-native';
-import axios from "axios";
+import React from 'react';
+import { View, Text } from 'react-native';
+import UserFetcher from '../components/UserFetcher';
 
 const MacroInputScreen = () => {
-    const [users, setUsers] = useState([]);
-    useEffect(() => {
-        const fetchUserData = async () => {
-          try {
-            const response = await axios.get("http://10.13.3.209:3000/users", { timeout: 10000 });
-            
-            setUsers(response.data);
-          } catch (error) {
-            console.log("hello", error)
-          }
-        };
-        fetchUserData();
-    }, []);
-    console.log("users",users);
-    return (
-        <SafeAreaView>
-            <ScrollView>
-                {users.map((user, index) => (
-                  
-                    <Text key={index}>{user.name} - Macros: {user.macros}</Text>
-                ))}
-            </ScrollView>
-        </SafeAreaView>
-    );
-}
+  return (
+    <UserFetcher apiUrl="http://10.10.9.53:3000/users">
+      {(users) => (
+        <View>
+          {users ? (
+            users.map((user) => (
+              <View key={user._id}>
+                <Text>{user.name} - Macros: {user.macros}</Text>
+              </View>
+            ))
+          ) : (
+            <Text>No users available.</Text>
+          )}
+        </View>
+      )}
+    </UserFetcher>
+  );
+};
 
 export default MacroInputScreen;

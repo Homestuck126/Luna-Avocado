@@ -1,68 +1,36 @@
-// FriendsScreen.js
-import React, { useEffect, useState }  from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  TouchableOpacity,
-  SafeAreaView
-} from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import React from "react";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 import ProfileListItem from "../components/ProfileListItem";
-import axios from "axios";
+import { generateAvatar } from "../components/AvatarUtils";
+import UserFetcher from "../components/UserFetcher";
 
-const FriendsScreen = () => {
-  const [users, setUsers] = useState([]);
-  useEffect(() => {
-      const fetchUserData = async () => {
-        try {
-          const response = await axios.get("http://localhost:3000/users", { timeout: 10000 });
-          setUsers(response.data);
-        } catch (error) {
-          console.log("error fetching user data", error);
-        }
-      };
-      fetchUserData();
-  }, []);
-  const navigation = useNavigation();
-  const example = users.name
-  console.log(example)
-  // Example user profiles
-  const temp = {
-    id: 1,
-    name: example,
-    bio: "Frontend Developer",
-    avatar: require("../assets/Cats/thincat1.jpg"),
-  };
-  const userProfiles = [
-    temp,
-    {
-      id: 2,
-      name: "Jane Smith",
-      bio: "UX Designer",
-      avatar: require("../assets/Cats/fatcat1.jpg"),
-    },
-    // Add more profiles as needed
-  ];
-
-  const navigateToProfileScreen = (profile) => {
-    navigation.navigate("FriendProfileDisplay", { profile });
-  };
-
+const FriendsScreen = ({ currentUser }) => {
+  const apiUrl = "http://10.10.9.53:3000/users";
+  console.log("FriendsScreen rendered")
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.header}>User Gallery</Text>
-      {userProfiles.map((profile) => (
-        <ProfileListItem
-          key={profile.id}
-          profile={profile}
-          onPress={navigateToProfileScreen}
-        />
-      ))}
-    </ScrollView>
+    <UserFetcher apiUrl={apiUrl} username={currentUser.username}>
+      {(friends, error) => (
+        <ScrollView contentContainerStyle={styles.container}>
+          {error ? (
+            <Text>Error fetching friends: {error}</Text>
+          ) : (
+            <>
+              <Text style={styles.header}>Friends of {currentUser.name}</Text>
+              {friends &&
+                friends.map((friend) => (
+                  <ProfileListItem
+                    key={friend._id}
+                    profile={generateAvatar(friend)}
+                  />
+                ))}
+            </>
+          )}
+        </ScrollView>
+      )}
+    </UserFetcher>
   );
 };
+
 
 const styles = StyleSheet.create({
   container: {

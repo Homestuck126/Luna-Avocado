@@ -9,7 +9,16 @@ import MacroInputScreen from '../screens/MacroInputScreen.js';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
+const currentUser = {
+  _id: "1265e2aa9f5b4476c1775bc1d93",
+  name: "MEGA ADMIN",
+  username: "a",
+  password: "a",
+  macros: 70,
+  bio: "I'm tryly the best",
+  friends: ["username2", "username3"],
 
+};
 export const AppStack = () => {
   return (
         <Drawer.Navigator initialRouteName="Profile">
@@ -23,7 +32,13 @@ export const AppStack = () => {
               }}
             >
             </Drawer.Screen>
-            <Drawer.Screen name="Friends" component={FriendsStack} ></Drawer.Screen>
+            <Drawer.Screen
+  name="Friends"
+  options={{ drawerLabel: 'Friends' }}
+>
+  {() => <FriendsScreen currentUser={currentUser} />}
+</Drawer.Screen>
+
         </Drawer.Navigator>
   );
 };
@@ -45,29 +60,31 @@ export const AuthStack = () => {
 
 
 //sub app stacks
-export const FriendsStack = () => {
+// Your existing FriendsStack component
+
+export const FriendsStack = ({ currentUser }) => {
   return (
     <Stack.Navigator 
       initialRouteName='FriendsScreen' 
       screenOptions={{
-        headerShown: true, // Set to true to display the header by default for all screens in this stack
+        headerShown: true,
       }}
     >
       <Stack.Screen 
         name='FriendProfileDisplay' 
-        component = {FriendProfileDisplay}
+        component={FriendProfileDisplay}
         options={{ 
-          headerTitle:'',
-          headerBackTitleVisible:false,
+          headerTitle: '',
+          headerBackTitleVisible: false,
         }}
       />
       <Stack.Screen 
         name='FriendsScreen' 
-        component = {FriendsScreen}
+        component={() => <FriendsScreen currentUser={currentUser} />}
         options={{ 
-          'headerShown': false
+          headerShown: false,
         }}
       />
     </Stack.Navigator>
-  )
+  );
 }
