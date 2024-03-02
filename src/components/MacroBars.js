@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import * as Progress from "react-native-progress";
 
-const MacroBars = () => {
+const MacroBars = (data) => {
   const [macrosData, setMacrosData] = useState({
     calories: 1200,
     protein: 100,
