@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema({
   },
   macro: {
     type: Number,
-    required: true
+    required: false
   }
 });
 

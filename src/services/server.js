@@ -46,15 +46,15 @@ app.post("/addUser", async (req, res) => {
 
     res
       .status(201)
-      .json({ message: "Employee saved successfully", employee: newEmployee });
+      .json({ message: "User saved successfully", user: newUser });
   } catch (error) {
     console.log("Error creating employee", error);
-    res.status(500).json({ message: "Failed to add an employee" });
+    res.status(500).json({ message: "Failed to add an user" });
   }
 });
 
 //endpoint to fetch all the users
-app.get("/users", async (req, res) => {
+app.get("/addUser", async (req, res) => {
   try {
     const users = await User.find();
     res.status(200).json(users);

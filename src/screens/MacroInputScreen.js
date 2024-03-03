@@ -9,7 +9,7 @@ const MacroInputScreen = () => {
     useEffect(() => {
         const fetchUserData = async () => {
           try {
-            const response = await axios.get("http://localhost:3000/users", { timeout: 10000 });
+            const response = await axios.get("http://192.168.86.222:3000/users", { timeout: 10000 });
             setUsers(response.data);
           } catch (error) {
             console.log("error fetching user data", error);
@@ -22,7 +22,7 @@ const MacroInputScreen = () => {
         <SafeAreaView>
             <ScrollView>
                 {users.map((user, index) => (
-                    <Text key={index}>{user.name} - Macros: {user.macros}</Text>
+                    <><Text>MacroInputScreen</Text><Text key={index}>{user.name} - Macros: {user.macros}</Text></>
                 ))}
             </ScrollView>
         </SafeAreaView>
