@@ -15,8 +15,11 @@ const generateAvatar = (user) => {
   const isFatCat = user.macros > 50;
 
   const randomIndex = Math.floor(Math.random() * 4);
+  console.log('Avatar Images:', avatarImages);
+  console.log('Fat Cat Images:', fatCatImages);
+
   return {
-    id: randomIndex + 1,  // Corrected variable name
+    id: user.id,
     name: user.name,
     bio: user.bio || "Default Bio",
     avatar: isFatCat ? fatCatImages[randomIndex] : avatarImages[randomIndex],

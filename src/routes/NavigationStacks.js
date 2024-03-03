@@ -4,23 +4,19 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import LoginScreen from '../screens/LoginScreen.js';
 import ProfileScreen from '../screens/ProfileScreen.js';
 import FriendsScreen from '../screens/FriendsScreen.js';
-import FriendProfileDisplay from '../screens/FriendProfileDisplay.js';
 import MacroInputScreen from '../screens/MacroInputScreen.js';
+import FriendProfileDisplay from '../screens/FriendProfileDisplay.js';
+import { useAuth } from '../contexts/Auth.js';
+
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
-const currentUser = {
-  _id: "1265e2aa9f5b4476c1775bc1d93",
-  name: "MEGA ADMIN",
-  username: "a",
-  password: "a",
-  macros: 70,
-  bio: "I'm tryly the best",
-  friends: ["username2", "username3"],
 
-};
 export const AppStack = () => {
+  const { userContext } = useAuth();
+  console.log("USERCONTEXT\n" ,userContext)
   return (
+
         <Drawer.Navigator initialRouteName="Profile">
             <Drawer.Screen name="Profile" component={ProfileScreen}></Drawer.Screen>
             <Drawer.Screen 
@@ -33,11 +29,11 @@ export const AppStack = () => {
             >
             </Drawer.Screen>
             <Drawer.Screen
-  name="Friends"
-  options={{ drawerLabel: 'Friends' }}
->
-  {() => <FriendsScreen currentUser={currentUser} />}
-</Drawer.Screen>
+            name="Friends"
+            options={{ drawerLabel: 'Friends' }}
+            >
+              {() => <FriendsStack currentUser={userContext} />}
+          </Drawer.Screen>
 
         </Drawer.Navigator>
   );
@@ -62,6 +58,7 @@ export const AuthStack = () => {
 //sub app stacks
 // Your existing FriendsStack component
 
+// ...
 export const FriendsStack = ({ currentUser }) => {
   return (
     <Stack.Navigator 
@@ -71,6 +68,13 @@ export const FriendsStack = ({ currentUser }) => {
       }}
     >
       <Stack.Screen 
+        name='FriendsScreen' 
+        component={() => <FriendsScreen currentUser={currentUser} />}
+        options={{ 
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen 
         name='FriendProfileDisplay' 
         component={FriendProfileDisplay}
         options={{ 
@@ -78,13 +82,7 @@ export const FriendsStack = ({ currentUser }) => {
           headerBackTitleVisible: false,
         }}
       />
-      <Stack.Screen 
-        name='FriendsScreen' 
-        component={() => <FriendsScreen currentUser={currentUser} />}
-        options={{ 
-          headerShown: false,
-        }}
-      />
     </Stack.Navigator>
   );
 }
+

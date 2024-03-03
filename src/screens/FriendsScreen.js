@@ -1,12 +1,18 @@
-import React from "react";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import React, { useState } from "react";
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from "react-native";
 import ProfileListItem from "../components/ProfileListItem";
-import { generateAvatar } from "../components/AvatarUtils";
 import UserFetcher from "../components/UserFetcher";
+import { useNavigation } from '@react-navigation/native';
 
 const FriendsScreen = ({ currentUser }) => {
+  const navigation = useNavigation();
   const apiUrl = "http://10.10.9.53:3000/users";
-  console.log("FriendsScreen rendered")
+  const [selectedFriend, setSelectedFriend] = useState(null);
+
+  const navigateToProfileScreen = (friend) => {
+    navigation.navigate('FriendProfileDisplay', { friend });
+  };
+
   return (
     <UserFetcher apiUrl={apiUrl} username={currentUser.username}>
       {(friends, error) => (
@@ -20,7 +26,8 @@ const FriendsScreen = ({ currentUser }) => {
                 friends.map((friend) => (
                   <ProfileListItem
                     key={friend._id}
-                    profile={generateAvatar(friend)}
+                    user={friend}
+                    onPress={navigateToProfileScreen}
                   />
                 ))}
             </>
@@ -30,7 +37,6 @@ const FriendsScreen = ({ currentUser }) => {
     </UserFetcher>
   );
 };
-
 
 const styles = StyleSheet.create({
   container: {

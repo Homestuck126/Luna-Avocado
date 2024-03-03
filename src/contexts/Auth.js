@@ -1,15 +1,38 @@
-import React, {createContext, useState, useContext} from 'react';
+import React, { createContext, useState, useContext } from 'react';
+import UserFetcher from '../components/UserFetcher';
+import axios from 'axios';
+
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [authData, setAuthData] = useState(false);
-  //const [loading, setLoading] = useState(true);
-//FIX
+  const [userContext, setUserContext] = useState(null);
   const signIn = async (username, password) => {
-    // Perform authentication logic and set user data
-    
-    if (username == '' && password == '' )
-    setAuthData(true)
+    const checkPassword = (user) => {
+      return user && user.password === password;
+    };
+
+    const apiUrl = "http://10.10.9.53:3000/users";
+
+    try {
+      const response = await axios.get(apiUrl, { timeout: 10000 });
+      const users = response.data.users;
+      const matchingUser = users.find(index =>index.username === username);
+      if (matchingUser)
+      {
+        if (checkPassword(matchingUser)) {
+          // Perform authentication logic and set user data
+          setUserContext(matchingUser);
+          setAuthData(true);
+        } else {
+          // Handle invalid username or password
+          console.error("Invalid username or password");
+        }
+      }
+    } catch (error) {
+      console.error("Error during sign-in:", error);
+      // Handle other errors (display a message, etc.)
+    }
   };
 
   const signOut = () => {
@@ -18,7 +41,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ authData, signIn, signOut }}>
+    <AuthContext.Provider value={{ authData, signIn, signOut ,userContext }}>
       {children}
     </AuthContext.Provider>
   );
