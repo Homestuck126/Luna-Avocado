@@ -28,16 +28,12 @@ const RegistrationScreen = (props) => {
   const apiUrl =  "http://"+IPADDR+":3000/addUser";
   const handleSignup = async () => {
     const userData = {
-        //name: "post12 test",
         name: "post test",
-        username: "useryname",
-        password: "passyword",
-        macros: 10,
-        bio: "lalalala",
-        Friends: new Array("hello")
+        username: username,
+        password: password,
+        bio: userBio,
       };
       console.log(userData)
-      console.log(apiUrl)
       axios
         .post(apiUrl, userData)
         .then((response) => {
