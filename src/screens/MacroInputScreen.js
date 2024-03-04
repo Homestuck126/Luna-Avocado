@@ -1,17 +1,12 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  Pressable,
-  Modal,
-} from "react-native";
+import { View, Text, StyleSheet, ScrollView, Pressable } from "react-native";
 import MacroBars from "../components/MacroBars";
 import FoodListItem from "../components/FoodListItem";
 import FoodItemModal from "../components/FoodItemModal";
 
 const MacroInputScreen = () => {
+  const [foodItemModalSelectedFood, setFoodItemModalSelectedFood] =
+    useState(null);
   const [foodItemModalVisible, setFoodItemModalVisible] = useState(false);
   const [logFoodModalVisible, logFoodItemModalVisible] = useState(false);
   const [macrosData, setMacrosData] = useState({
@@ -53,6 +48,7 @@ const MacroInputScreen = () => {
       <FoodItemModal
         isVisible={foodItemModalVisible}
         onClose={() => setFoodItemModalVisible(false)}
+        foodData={foodItemModalSelectedFood}
       ></FoodItemModal>
 
       {/* Macros top 1/4 screen */}
@@ -101,7 +97,10 @@ const MacroInputScreen = () => {
             <FoodListItem
               key={food.id}
               data={food}
-              onPress={() => setFoodItemModalVisible(true)}
+              onPress={() => {
+                setFoodItemModalVisible(true);
+                setFoodItemModalSelectedFood(food);
+              }}
             />
           ))}
         </View>
