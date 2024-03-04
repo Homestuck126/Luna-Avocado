@@ -10,10 +10,10 @@ const MacroInputScreen = () => {
   const [foodItemModalVisible, setFoodItemModalVisible] = useState(false);
   const [logFoodModalVisible, logFoodItemModalVisible] = useState(false);
   const [macrosData, setMacrosData] = useState({
-    calories: 1200,
-    protein: 100,
-    carbohydrate: 120,
-    fats: 12,
+    calories: 0,
+    protein: 0,
+    carbohydrate: 0,
+    fats: 0,
     calorieGoal: 2000,
     proteinGoal: 150,
     carbGoal: 200,
@@ -33,7 +33,7 @@ const MacroInputScreen = () => {
     {
       id: 3,
       name: "pork",
-      macros: [350, 13, 12, 15], //[protein, carbs, fats]
+      macros: [500, 13, 12, 15], //[protein, carbs, fats]
     },
     {
       id: 4,
@@ -41,6 +41,32 @@ const MacroInputScreen = () => {
       macros: [70, 2, 0, 0], //[protein, carbs, fats]
     },
   ];
+
+  const updateMacrosData = () => {
+    const updatedMacrosData = foodItems.reduce(
+      (acc, foodItem) => {
+        acc.calories += foodItem.macros[0];
+        acc.protein += foodItem.macros[1];
+        acc.carbohydrate += foodItem.macros[2];
+        acc.fats += foodItem.macros[3];
+        return acc;
+      },
+      {
+        calories: 0,
+        protein: 0,
+        carbohydrate: 0,
+        fats: 0,
+      }
+    );
+
+    setMacrosData({
+      ...macrosData,
+      calories: updatedMacrosData.calories,
+      protein: updatedMacrosData.protein,
+      carbohydrate: updatedMacrosData.carbohydrate,
+      fats: updatedMacrosData.fats,
+    });
+  };
 
   return (
     <View style={styles.container}>
@@ -73,6 +99,10 @@ const MacroInputScreen = () => {
               },
               styles.button,
             ]}
+            onPress={() => {
+              updateMacrosData();
+              console.log(macrosData);
+            }}
           >
             <Text style={styles.buttonText}>Log Food</Text>
           </Pressable>
