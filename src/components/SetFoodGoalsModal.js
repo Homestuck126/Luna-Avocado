@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, Pressable, Modal } from "react-native";
-import FoodListItem from "./FoodListItem";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Pressable,
+  Modal,
+  TextInput,
+} from "react-native";
 
-const FoodItemModal = ({ isVisible, onClose, foodData }) => {
+const SetFoodGoalsModal = ({ isVisible, onClose, goalsData }) => {
   const [modalVisible, setModalVisible] = useState(false);
   useEffect(() => {
     setModalVisible(isVisible);
@@ -10,6 +16,24 @@ const FoodItemModal = ({ isVisible, onClose, foodData }) => {
   const closeModal = () => {
     setModalVisible(false);
     onClose(false);
+  };
+  const handleEdit = () => {
+    // Perform any necessary actions when the "Edit" button is pressed
+    // For example, update the goalsData and call onDataUpdate
+    // For now, let's just log the goalsData
+    console.log(goalsData);
+
+    // If you want to update goalsData and pass it back to the parent component:
+    const updatedGoalsData = {
+      ...goalsData,
+      // Update properties as needed
+    };
+
+    // Call the onDataUpdate callback to pass the updated data to the parent component
+    onDataUpdate(updatedGoalsData);
+
+    // Close the modal
+    closeModal();
   };
   return (
     <Modal
@@ -22,7 +46,15 @@ const FoodItemModal = ({ isVisible, onClose, foodData }) => {
     >
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
-          <FoodListItem data={foodData} isPressable={false}></FoodListItem>
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={styles.input}
+              placeholder="calorie goal"
+              value={goalsData[4]}
+              autoCapitalize="none"
+              textAlign="left"
+            />
+          </View>
           <View style={styles.buttonContainer}>
             <Pressable
               style={({ pressed }) => [
@@ -68,7 +100,7 @@ const styles = StyleSheet.create({
     marginTop: 22,
   },
   modalView: {
-    height: "24%",
+    height: "50%",
     width: "80%",
     margin: 20,
     backgroundColor: "white",
@@ -96,6 +128,22 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     flexDirection: "row",
   },
+  inputContainer: {
+    flexDirection: "row",
+    width: "80%",
+    alignItems: "center",
+    justifyContent: "space-between",
+    backgroundColor: "white",
+    borderRadius: 8,
+    paddingHorizontal: 14,
+  },
+  input: {
+    height: 40,
+    width: 200,
+    color: "#333",
+    paddingVertical: 10,
+    paddingRight: 10,
+    fontSize: 16,
+  },
 });
-
-export default FoodItemModal;
+export default SetFoodGoalsModal;

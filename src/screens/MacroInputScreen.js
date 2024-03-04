@@ -3,12 +3,14 @@ import { View, Text, StyleSheet, ScrollView, Pressable } from "react-native";
 import MacroBars from "../components/MacroBars";
 import FoodListItem from "../components/FoodListItem";
 import FoodItemModal from "../components/FoodItemModal";
+import SetFoodGoalsModal from "../components/SetFoodGoalsModal";
 
 const MacroInputScreen = () => {
   const [foodItemModalSelectedFood, setFoodItemModalSelectedFood] =
     useState(null);
   const [foodItemModalVisible, setFoodItemModalVisible] = useState(false);
   const [logFoodModalVisible, logFoodItemModalVisible] = useState(false);
+  const [foodGoalsModalVisible, setFoodGoalsModalVisible] = useState(false);
   const [macrosData, setMacrosData] = useState({
     calories: 0,
     protein: 0,
@@ -77,7 +79,13 @@ const MacroInputScreen = () => {
         foodData={foodItemModalSelectedFood}
       ></FoodItemModal>
 
-      {/* Macros top 1/4 screen */}
+      <SetFoodGoalsModal
+        isVisible={foodGoalsModalVisible}
+        onClose={() => setFoodGoalsModalVisible(false)}
+        goalsData={macrosData}
+      ></SetFoodGoalsModal>
+
+      {/* Macros bars top 1/4 screen */}
       <Text style={styles.header}>Today's Progress</Text>
       <MacroBars data={macrosData}></MacroBars>
       {/* ScrollView bottom 3/4 */}
@@ -115,6 +123,9 @@ const MacroInputScreen = () => {
               },
               styles.button,
             ]}
+            onPress={() => {
+              setFoodGoalsModalVisible(true);
+            }}
           >
             <Text style={styles.buttonText}>Set Goals</Text>
           </Pressable>
