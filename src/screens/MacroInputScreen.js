@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import UserFetcher from '../components/UserFetcher';
 
 
-const IPADDR = process.env.IPADDR;
+const IPADDR = process.env.EXPO_PUBLIC_IPADDR;
 const apiUrls =  "http://" + IPADDR +":3000/users";
 const MacroInputScreen = () => {
   return (

@@ -1,25 +1,19 @@
-import React from 'react';
+import React, { useState } from "react";
+import {
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  SafeAreaView,
+} from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import axios from "axios";
 
-const registerUser = async (username, password) => {
-    try {
-        // send a POST request to the registration endpoint on the server
-        const response = await fetch('http://localhost:3000/register', {
-            method: 'POST', //use the POST method to send data to the server
-            headers: {
-                'Content-Type': 'application/json', // specify that the request contains JSON data
-            },
-            body: JSON.stringify({ username, password }), // convert user data to JSON format and include it in the request body
-        });
-        
-        // parse the response from the server as JSON
-        const data = await response.json();
 
-    // log the message received from the server
-    console.log(data.message);
-  } catch (error) {
-    console.error("Error during registration:", error);
-  }
-};
+const IPADDR = process.env.EXPO_PUBLIC_IPADDR;
+const apiUrl =  "http://" + IPADDR +":3000/addUser";
+
 
 const RegistrationScreen = (props) => {
   const [username, setUsername] = useState("");
@@ -29,6 +23,35 @@ const RegistrationScreen = (props) => {
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
+
+  const IPADDR = process.env.EXPO_PUBLIC_IPADDR;
+  const apiUrl =  "http://"+IPADDR+":3000/addUser";
+  const handleSignup = async () => {
+    const userData = {
+        //name: "post12 test",
+        name: "post test",
+        username: "useryname",
+        password: "passyword",
+        macros: 10,
+        bio: "lalalala",
+        Friends: new Array("hello")
+      };
+      console.log(userData)
+      console.log(apiUrl)
+      axios
+        .post(apiUrl, userData)
+        .then((response) => {
+            console.log("SUCCESS")
+         
+        })
+        .catch((error) => {
+          Alert.alert(
+            "Registration Fail",
+            "An error occurred during registration"
+          );
+          console.log("register failed", error);
+        });
+    };
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.loginbox}>
@@ -71,13 +94,13 @@ const RegistrationScreen = (props) => {
             textAlign="left"
           />
         </View>
-        <Pressable style={styles.button}>
+        <Pressable style={styles.button} onPress={handleSignup}>
           <Text style={styles.buttonText}>Sign Up</Text>
         </Pressable>
       </View>
     </SafeAreaView>
   );
-};
+}
 
 export default RegistrationScreen;
 

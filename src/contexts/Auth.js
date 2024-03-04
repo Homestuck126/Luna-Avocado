@@ -8,7 +8,6 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const IPADDR = process.env.EXPO_PUBLIC_IPADDR;
-
   const apiUrl =  "http://"+IPADDR+":3000/users";
   console.log(apiUrl)
   const [authData, setAuthData] = useState(false);
