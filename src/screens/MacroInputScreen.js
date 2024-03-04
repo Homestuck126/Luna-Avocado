@@ -14,6 +14,16 @@ import FoodItemModal from "../components/FoodItemModal";
 const MacroInputScreen = () => {
   const [foodItemModalVisible, setFoodItemModalVisible] = useState(false);
   const [logFoodModalVisible, logFoodItemModalVisible] = useState(false);
+  const [macrosData, setMacrosData] = useState({
+    calories: 1200,
+    protein: 100,
+    carbohydrate: 120,
+    fats: 12,
+    calorieGoal: 2000,
+    proteinGoal: 150,
+    carbGoal: 200,
+    fatsGoal: 50,
+  });
   const foodItems = [
     {
       id: 1,
@@ -47,12 +57,13 @@ const MacroInputScreen = () => {
 
       {/* Macros top 1/4 screen */}
       <Text style={styles.header}>Today's Progress</Text>
-      <MacroBars></MacroBars>
+      <MacroBars data={macrosData}></MacroBars>
       {/* ScrollView bottom 3/4 */}
       <ScrollView
         style={styles.bottomView}
         showsVerticalScrollIndicator={true}
         indicatorStyle="black"
+        scrollIndicatorInsets={{ right: 1 }}
       >
         {/* Buttons */}
         <View style={styles.buttonsContainer}>
