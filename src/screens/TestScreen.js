@@ -3,7 +3,7 @@ import { SafeAreaView, Text, ScrollView } from 'react-native';
 import axios from "axios";
 
 const TestScreen = () => {
-    const [_name, setName] = useState("");
+    // const [_name, setName] = useState("");
     // //const [_id, setId] = useState("");
     // const [username, setUsername] = useState("");
     // const [password, setPassword] = useState("");
@@ -12,7 +12,7 @@ const TestScreen = () => {
   
     const userData = {
         //name: "post12 test",
-        name:_name
+        name: "post test",
         username: "useryname",
         password: "passyword",
         macros: 10,
@@ -27,7 +27,7 @@ const TestScreen = () => {
             "Registration Successful",
             "You have been registered successfully"
           );
-        setName("name test");
+        // setName("name test");
         //   //setId("");
         //   setUsername("useryname");
         //   setPassword("passyword");
