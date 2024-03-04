@@ -2,9 +2,15 @@ import React, { createContext, useState, useContext } from 'react';
 import UserFetcher from '../components/UserFetcher';
 import axios from 'axios';
 
+
+
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+  const IPADDR = process.env.EXPO_PUBLIC_IPADDR;
+
+  const apiUrl =  "http://"+IPADDR+":3000/users";
+  console.log(apiUrl)
   const [authData, setAuthData] = useState(false);
   const [userContext, setUserContext] = useState(null);
   const signIn = async (username, password) => {
@@ -12,7 +18,7 @@ export const AuthProvider = ({ children }) => {
       return user && user.password === password;
     };
 
-    const apiUrl = "http://10.10.9.53:3000/users";
+
 
     try {
       const response = await axios.get(apiUrl, { timeout: 10000 });

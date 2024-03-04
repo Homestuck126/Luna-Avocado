@@ -2,9 +2,12 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import UserFetcher from '../components/UserFetcher';
 
+
+const IPADDR = process.env.IPADDR;
+const apiUrls =  "http://" + IPADDR +":3000/users";
 const MacroInputScreen = () => {
   return (
-    <UserFetcher apiUrl="http://10.10.9.53:3000/users">
+    <UserFetcher apiUrl= {apiUrls} >
       {(users) => (
         <View>
           {users ? (

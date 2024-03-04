@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const moment = require("moment");
 
+
 const app = express();
 const port = 3000;
 const cors = require("cors");
@@ -11,8 +12,10 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+const MONGODB_URL = process.env.MONGODB_URL;
+
 mongoose
-  .connect("mongodb+srv://puckerfishy:tamagachi@cluster0.kbfgpln.mongodb.net/VirtualPetDatabase", {
+  .connect(MONGODB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

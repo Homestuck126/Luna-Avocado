@@ -5,8 +5,10 @@ import UserFetcher from "../components/UserFetcher";
 import { useNavigation } from '@react-navigation/native';
 
 const FriendsScreen = ({ currentUser }) => {
+  const IPADDR = process.env.EXPO_PUBLIC_IPADDR;
+  const apiUrl =  "http://" + IPADDR +":3000/users";
   const navigation = useNavigation();
-  const apiUrl = "http://10.10.9.53:3000/users";
+  
   const [selectedFriend, setSelectedFriend] = useState(null);
 
   const navigateToProfileScreen = (friend) => {

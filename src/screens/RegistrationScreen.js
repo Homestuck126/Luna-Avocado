@@ -1,9 +1,12 @@
 import React from 'react';
 
+
+const IPADDR = process.env.EXPO_PUBLIC_IPADDR;
+const apiUrl =  "http://" + IPADDR +":3000/addUser";
 const registerUser = async (username, password) => {
     try {
         // send a POST request to the registration endpoint on the server
-        const response = await fetch('http://localhost:3000/register', {
+        const response = await fetch({apiUrl}, {
             method: 'POST', //use the POST method to send data to the server
             headers: {
                 'Content-Type': 'application/json', // specify that the request contains JSON data
