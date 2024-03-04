@@ -32,18 +32,20 @@ const User = require("./models/User.js");
 
 app.post("/addUser", async (req, res) => {
   try {
-    const { name, password, username, macro } = req.body;
+    const { name, password, username, macros, bio, Friends} = req.body;
 
     // Create a new user
     const newUser = new User({
       name,
       password,
       username,
-      macro
+      macros, 
+      bio, 
+      Friends,
     });
 
     await newUser.save();
-
+    console.log(newUser);
     res
       .status(201)
       .json({ message: "User saved successfully", user: newUser });

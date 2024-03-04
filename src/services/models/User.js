@@ -14,11 +14,19 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  macro: {
+  macros: {
     type: Number,
     required: false
-  }
-});
+  }, 
+  bio: {
+    type: String,
+    required: false
+  },
+  Friends:{
+    type: Array,
+    required: false
+  },
+}, {versionKey: false});
 
 const User = mongoose.model('User', userSchema);
 
