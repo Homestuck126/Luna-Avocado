@@ -5,13 +5,14 @@ import {
   Text,
   TextInput,
   View,
-  Alert,
   SafeAreaView,
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { AuthProvider, useAuth } from "../contexts/Auth";
+import { useNavigation } from "@react-navigation/native";
 
 const LoginScreen = () => {
+  const navigation = useNavigation();
   const { signIn } = useAuth();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -26,6 +27,9 @@ const LoginScreen = () => {
   };
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
+  };
+  const navigateToRegistrationScreen = () => {
+    navigation.navigate("Register");
   };
   return (
     <SafeAreaView style={styles.container}>
@@ -50,7 +54,6 @@ const LoginScreen = () => {
             autoCapitalize="none"
             textAlign="left"
             secureTextEntry={!showPassword}
-            onSubmitEditing={handleLogin}
           />
           <MaterialCommunityIcons
             name={showPassword ? "eye-off" : "eye"}
@@ -63,7 +66,7 @@ const LoginScreen = () => {
         <Pressable style={styles.button} onPress={handleLogin}>
           <Text style={styles.buttonText}>Login</Text>
         </Pressable>
-        <Pressable style={styles.button}>
+        <Pressable style={styles.button} onPress={navigateToRegistrationScreen}>
           <Text style={styles.buttonText}>Sign Up</Text>
         </Pressable>
       </View>

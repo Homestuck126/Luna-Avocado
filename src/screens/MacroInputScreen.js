@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { View, Text, StyleSheet, ScrollView, Pressable } from "react-native";
 import MacroBars from "../components/MacroBars";
@@ -5,6 +6,8 @@ import FoodListItem from "../components/FoodListItem";
 import FoodItemModal from "../components/FoodItemModal";
 import SetFoodGoalsModal from "../components/SetFoodGoalsModal";
 
+const IPADDR = process.env.EXPO_PUBLIC_IPADDR;
+const apiUrls =  "http://" + IPADDR +":3000/users";
 const MacroInputScreen = () => {
   const [foodItemModalSelectedFood, setFoodItemModalSelectedFood] =
     useState(null);
@@ -203,5 +206,4 @@ const styles = StyleSheet.create({
     color: "#696969",
   },
 });
-
 export default MacroInputScreen;

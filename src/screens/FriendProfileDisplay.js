@@ -1,17 +1,17 @@
 // FriendProfileDisplay.js
-import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
-
+import React from 'react';
+import { View, Text, Image, StyleSheet } from 'react-native';
+import { generateAvatar } from '../components/AvatarUtils';
 const FriendProfileDisplay = ({ route }) => {
-  const { profile } = route.params;
+
+  const { friend } = route.params;
+  const profile =  generateAvatar(friend)
 
   return (
     <View style={styles.container}>
-      <View style={styles.profileContainer}>
-        <Image source={profile.avatar} style={styles.avatar} />
-        <Text style={styles.name}>{profile.name}</Text>
-        <Text style={styles.bio}>{profile.bio}</Text>
-      </View>
+      <Image source={profile.avatar} style={styles.avatar} />
+      <Text style={profile.name}>{profile.name}</Text>
+      <Text style={profile.bio}>{profile.bio}</Text>
     </View>
   );
 };
@@ -19,28 +19,23 @@ const FriendProfileDisplay = ({ route }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 20,
-  },
-  profileContainer: {
-    alignItems: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   avatar: {
-    width: 150,
-    height: 150,
-    borderRadius: 75,
-    marginBottom: 10,
+    width: 200,
+    height: 200,
+    borderRadius: 100,
+    marginBottom: 20,
   },
   name: {
     fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 5,
+    fontWeight: 'bold',
+    marginBottom: 10,
   },
   bio: {
     fontSize: 16,
-    color: "#666",
-    marginBottom: 20,
+    textAlign: 'center',
   },
 });
 
