@@ -29,7 +29,7 @@ app.listen(port, () => {
 
 const User = require("./models/User.js");
 
-//endpoint to register a employee
+//endpoint to register a users
 app.post("/User", async (req, res) => {
     try {
       const {
