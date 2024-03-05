@@ -61,7 +61,7 @@ app.post("/addUser", async (req, res) => {
         username,
         macros,
         bio,
-        friends,
+        Friends,
       } = req.body;
   
       //create a new user
@@ -71,7 +71,7 @@ app.post("/addUser", async (req, res) => {
         username,
         macros,
         bio,
-        friends,
+        Friends,
       });
   
       await newUser.save();

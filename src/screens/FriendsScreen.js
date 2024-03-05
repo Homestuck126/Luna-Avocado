@@ -17,10 +17,12 @@ const FriendsScreen = ({ currentUser }) => {
   };
   const handleAddFriend = () => {
     const _username =currentUser.username
-    const updateData = {$push:{Friends: "AKLSJDKLASJD"}};
+    const updateData = {$push:{Friends: "useryname"}};
     const IPADDR = process.env.EXPO_PUBLIC_IPADDR;
+    const temp = `http://`+IPADDR+`:3000/users/${_username}`
+    console.log(temp)
     axios
-      .patch("http://"+IPADDR+"3000/users/" + _username, updateData)
+      .patch( temp, updateData)
       .then((response) => {
           Alert.alert(
             "Registration Successful",
