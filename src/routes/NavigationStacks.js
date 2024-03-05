@@ -22,6 +22,11 @@ export const AppStack = () => {
         name="MacroInput"
         component={MacroInputScreen}
         options={{
+          drawerLabel: "Feed Pet",
+          headerTitle: "Feed Pet",
+        }}
+      ></Drawer.Screen>
+      <Drawer.Screen name="Friends" component={FriendsStack}></Drawer.Screen>
           drawerLabel: "Log Food",
           headerTitle: "Macros",
         }}

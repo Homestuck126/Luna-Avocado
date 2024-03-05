@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useState } from "react";
+import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 
 const ProfileScreen = () => {
   const userProfile = {
-    name: 'John Doe',
-    bio: 'Frontend Developer',
+    name: "John Doe",
+    bio: "Frontend Developer",
   };
 
   const [hungerValue, setHungerValue] = useState(50);
@@ -20,8 +20,8 @@ const ProfileScreen = () => {
   // Determine which avatar to use based on hunger value
   const avatarSource =
     hungerValue >= 50
-      ? require('../assets/Cats/fatcat1.jpg')
-      : require('../assets/Cats/thincat1.jpg');
+      ? require("../assets/Cats/fatcat1.jpg")
+      : require("../assets/Cats/thincat1.jpg");
 
   return (
     <View style={styles.container}>
@@ -59,12 +59,12 @@ const ProfileScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     padding: 20,
   },
   profileContainer: {
-    alignItems: 'center',
+    alignItems: "center",
   },
   avatar: {
     width: 150,
@@ -74,44 +74,44 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 5,
   },
   bio: {
     fontSize: 16,
-    color: '#666',
+    color: "#666",
     marginBottom: 20,
   },
   hungerBarContainer: {
-    width: '80%',
+    width: "80%",
     height: 20,
-    backgroundColor: '#ddd',
+    backgroundColor: "#ddd",
     borderRadius: 10,
     marginVertical: 20,
   },
   hungerBar: {
-    height: '100%',
-    backgroundColor: '#3498db',
+    height: "100%",
+    backgroundColor: "#3498db",
     borderRadius: 10,
   },
   buttonsContainer: {
-    flexDirection: 'column',
-    justifyContent: 'space-around',
-    width: '80%',
+    flexDirection: "column",
+    justifyContent: "space-around",
+    width: "80%",
   },
   fillButton: {
-    backgroundColor: '#27ae60',
+    backgroundColor: "#27ae60",
     padding: 10,
     borderRadius: 5,
     marginBottom: 10,
   },
   decreaseButton: {
-    backgroundColor: '#e74c3c',
+    backgroundColor: "#e74c3c",
     padding: 10,
     borderRadius: 5,
   },
   buttonText: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 16,
   },
 });
