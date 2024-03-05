@@ -30,6 +30,26 @@ app.listen(port, () => {
 
 const User = require("./models/User.js");
 
+
+app.patch('/users/:name', async (req, res) => {
+  try {
+    
+    const namesearch = req.params.name
+    const info = req.body
+    console.log(info);
+   
+   const updatedUser = await User.findOneAndUpdate({name: namesearch}, info, {returnNewDocument: true});
+    if (!updatedUser) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    res.status(200).json({ message: "User updated successfully", user: updatedUser });
+    console.log(updatedUser)
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
+
+
 app.post("/addUser", async (req, res) => {
   try {
     const { name, password, username, macros, bio, Friends} = req.body;
@@ -56,7 +76,7 @@ app.post("/addUser", async (req, res) => {
 });
 
 //endpoint to fetch all the users
-app.get("/addUser", async (req, res) => {
+app.get("/users", async (req, res) => {
   try {
     const users = await User.find();
     res.status(200).json(users);
