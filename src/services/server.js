@@ -33,35 +33,38 @@ app.listen(port, () => {
 const User = require("./models/User.js");
 
 //endpoint to register a employee
-app.post("/User", async (req, res) => {
+app.post("/addUser", async (req, res) => {
     try {
+      console.log("a");
       const {
         name,
         password,
         username,
-        macro,
+        macros,
+        bio,
+        friends,
       } = req.body;
   
-      //create a new Employee
+      //create a new user
       const newUser = new User({
         name,
         password,
         username,
-        macro,
+        macros,
+        bio,
+        friends,
       });
   
       await newUser.save();
-  
-      res
-        .status(201)
-        .json({ message: "Employee saved successfully", employee: newUser });
+      console.log("newUser");
+      res.status(201).json({ message: "User saved successfully", user: newUser });
     } catch (error) {
       console.log("Error creating user", error);
       res.status(500).json({ message: "Failed to add an user" });
     }
   });
   
-  //endpoint to fetch all the employees
+  //endpoint to fetch all the users
   app.get("/users", async (req, res) => {
     try {
       const users = await User.find();
