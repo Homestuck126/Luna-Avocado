@@ -1,12 +1,18 @@
 // ProfileListItem.js
 import React from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { generateAvatar } from './AvatarUtils';
+const ProfileListItem = ({ user, onPress }) => {
+  const profile = generateAvatar(user);
 
-const ProfileListItem = ({ profile, onPress }) => {
+  // Log to check the profile and image source
+  console.log('Profile:', profile);
   return (
-    <TouchableOpacity onPress={() => onPress(profile)}>
+    <TouchableOpacity onPress={() => onPress(user)}>
       <View style={styles.container}>
-        <Image source={profile.avatar} style={styles.avatar} />
+        {profile.avatar && (
+          <Image source={profile.avatar} style={styles.avatar} />
+        )}
         <Text style={styles.name}>{profile.name}</Text>
         <Text style={styles.bio}>{profile.bio}</Text>
       </View>
@@ -28,11 +34,10 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 5,
   },
   bio: {
     fontSize: 14,
-    color: '#666',
+    textAlign: 'center',
   },
 });
 
