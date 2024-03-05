@@ -26,11 +26,6 @@ export const AppStack = () => {
           headerTitle: "Feed Pet",
         }}
       ></Drawer.Screen>
-      <Drawer.Screen name="Friends" component={FriendsStack}></Drawer.Screen>
-          drawerLabel: "Log Food",
-          headerTitle: "Macros",
-        }}
-      ></Drawer.Screen>
       <Drawer.Screen name="Friends" options={{ drawerLabel: "Friends" }}>
         {() => <FriendsStack currentUser={userContext} />}
       </Drawer.Screen>
