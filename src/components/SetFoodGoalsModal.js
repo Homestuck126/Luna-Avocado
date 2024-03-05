@@ -10,29 +10,27 @@ import {
 
 const SetFoodGoalsModal = ({ isVisible, onClose, goalsData }) => {
   const [modalVisible, setModalVisible] = useState(false);
+  const [updatedGoalsData, setUpdatedGoalsData] = useState([goalsData]);
   useEffect(() => {
     setModalVisible(isVisible);
-  }, [isVisible]);
+    setUpdatedGoalsData([goalsData]);
+  }, [isVisible, goalsData]);
   const closeModal = () => {
     setModalVisible(false);
     onClose(false);
   };
-  const handleEdit = () => {
+
+  const handleSubmit = () => {
     // Perform any necessary actions when the "Edit" button is pressed
     // For example, update the goalsData and call onDataUpdate
     // For now, let's just log the goalsData
     console.log(goalsData);
 
     // If you want to update goalsData and pass it back to the parent component:
-    const updatedGoalsData = {
-      ...goalsData,
-      // Update properties as needed
-    };
+    setUpdatedGoalsData([...updatedGoalsData]);
 
     // Call the onDataUpdate callback to pass the updated data to the parent component
-    onDataUpdate(updatedGoalsData);
 
-    // Close the modal
     closeModal();
   };
   return (
@@ -50,7 +48,35 @@ const SetFoodGoalsModal = ({ isVisible, onClose, goalsData }) => {
             <TextInput
               style={styles.input}
               placeholder="calorie goal"
-              value={goalsData[4]}
+              value={updatedGoalsData[4]}
+              autoCapitalize="none"
+              textAlign="left"
+              inputMode="numeric"
+            />
+          </View>
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={styles.input}
+              placeholder="protein goal"
+              value={updatedGoalsData[5]}
+              autoCapitalize="none"
+              textAlign="left"
+            />
+          </View>
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={styles.input}
+              placeholder="carbohydrates goal"
+              value={updatedGoalsData[6]}
+              autoCapitalize="none"
+              textAlign="left"
+            />
+          </View>
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={styles.input}
+              placeholder="fats goal"
+              value={updatedGoalsData[7]}
               autoCapitalize="none"
               textAlign="left"
             />
@@ -66,8 +92,11 @@ const SetFoodGoalsModal = ({ isVisible, onClose, goalsData }) => {
                     : "rgb(52,152,219)",
                 },
               ]}
+              onPress={() => {
+                handleSubmit();
+              }}
             >
-              <Text style={styles.modalText}>Edit</Text>
+              <Text style={styles.modalText}>Submit</Text>
             </Pressable>
             <Pressable
               style={({ pressed }) => [
@@ -83,7 +112,7 @@ const SetFoodGoalsModal = ({ isVisible, onClose, goalsData }) => {
                 closeModal();
               }}
             >
-              <Text style={styles.modalText}>Close</Text>
+              <Text style={styles.modalText}>Cancel</Text>
             </Pressable>
           </View>
         </View>
@@ -100,12 +129,12 @@ const styles = StyleSheet.create({
     marginTop: 22,
   },
   modalView: {
-    height: "50%",
+    height: "40%",
     width: "80%",
     margin: 20,
     backgroundColor: "white",
     borderRadius: 20,
-    padding: 5,
+    padding: 20,
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
@@ -130,12 +159,13 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     flexDirection: "row",
-    width: "80%",
+    width: "100%",
     alignItems: "center",
     justifyContent: "space-between",
-    backgroundColor: "white",
+    backgroundColor: "rgb(245,245,245)",
     borderRadius: 8,
     paddingHorizontal: 14,
+    marginBottom: 10,
   },
   input: {
     height: 40,

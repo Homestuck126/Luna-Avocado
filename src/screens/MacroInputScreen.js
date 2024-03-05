@@ -9,7 +9,7 @@ const MacroInputScreen = () => {
   const [foodItemModalSelectedFood, setFoodItemModalSelectedFood] =
     useState(null);
   const [foodItemModalVisible, setFoodItemModalVisible] = useState(false);
-  const [logFoodModalVisible, logFoodItemModalVisible] = useState(false);
+  const [logFoodModalVisible, setLogFoodItemModalVisible] = useState(false);
   const [foodGoalsModalVisible, setFoodGoalsModalVisible] = useState(false);
   const [macrosData, setMacrosData] = useState({
     calories: 0,
