@@ -12,7 +12,6 @@ import axios from "axios";
 
 
 const IPADDR = process.env.EXPO_PUBLIC_IPADDR;
-const apiUrl =  "http://" + IPADDR +":3000/addUser";
 
 
 const RegistrationScreen = (props) => {
@@ -24,7 +23,6 @@ const RegistrationScreen = (props) => {
     setShowPassword(!showPassword);
   };
 
-  const IPADDR = process.env.EXPO_PUBLIC_IPADDR;
   const apiUrl =  "http://"+IPADDR+":3000/addUser";
   const handleSignup = async () => {
     const userData = {
