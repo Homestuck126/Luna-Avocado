@@ -8,11 +8,9 @@ import {
   TextInput,
 } from "react-native";
 
-
-
 //----------------------------------------------------------------------------------}
 
-const LogFoodModal = ({ isVisible, onClose }) => {
+const LogFoodModal = ({ isVisible, onClose, addFood }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [foodName, setFoodName] = useState("");
   const [calories, setCalories] = useState("");
@@ -31,12 +29,11 @@ const LogFoodModal = ({ isVisible, onClose }) => {
 
   const handleSubmit = () => {
     console.log({ foodName, calories, protein, carbohydrates, fat });
-    setFoodName('');
-    setCalories('');
-    setProtein('');
-    setCarbohydrates('');
-    setFat('');
-  
+    setFoodName("");
+    setCalories("");
+    setProtein("");
+    setCarbohydrates("");
+    setFat("");
 
     closeModal();
   };
@@ -85,9 +82,38 @@ const LogFoodModal = ({ isVisible, onClose }) => {
             onChangeText={setFat}
             keyboardType="numeric"
           />
-          <Pressable style={styles.button} onPress={handleSubmit}>
-            <Text style={styles.modalText}>Submit</Text>
-          </Pressable>
+          <View style={styles.buttonContainer}>
+            <Pressable
+              style={({ pressed }) => [
+                styles.button,
+                styles.buttonClose,
+                {
+                  backgroundColor: pressed
+                    ? "rgba(52,152,219,0.7)"
+                    : "rgb(52,152,219)",
+                },
+              ]}
+              onPress={handleSubmit}
+            >
+              <Text style={styles.modalText}>Submit</Text>
+            </Pressable>
+            <Pressable
+              style={({ pressed }) => [
+                styles.button,
+                styles.buttonClose,
+                {
+                  backgroundColor: pressed
+                    ? "rgba(52,152,219,0.7)"
+                    : "rgb(52,152,219)",
+                },
+              ]}
+              onPress={() => {
+                closeModal();
+              }}
+            >
+              <Text style={styles.modalText}>Cancel</Text>
+            </Pressable>
+          </View>
         </View>
       </View>
     </Modal>
@@ -139,10 +165,15 @@ const styles = StyleSheet.create({
     borderColor: "#ddd",
   },
   button: {
-    borderRadius: 20,
     padding: 10,
-    elevation: 2,
-    backgroundColor: "#2196F3",
+    borderRadius: 8,
+    width: "45%",
+    alignItems: "center",
+    marginHorizontal: 5,
+  },
+  buttonContainer: {
+    justifyContent: "center",
+    flexDirection: "row",
   },
   modalText: {
     color: "white",
@@ -152,4 +183,3 @@ const styles = StyleSheet.create({
 });
 
 export default LogFoodModal;
-
