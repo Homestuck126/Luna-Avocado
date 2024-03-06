@@ -36,8 +36,8 @@ const FriendsScreen = ({ currentUser }) => {
       .patch(temp, updateData)
       .then((response) => {
         Alert.alert(
-          "Registration Successful",
-          "You have been registered successfully"
+          "Friend added Successfully",
+          "Your friend has been added"
         );
       })
       .catch((error) => {
