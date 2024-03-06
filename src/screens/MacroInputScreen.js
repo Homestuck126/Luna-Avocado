@@ -18,15 +18,16 @@ const MacroInputScreen = ({currentUser}) => {
   const [logFoodModalVisible, setLogFoodItemModalVisible] = useState(false);
   const [foodGoalsModalVisible, setFoodGoalsModalVisible] = useState(false);
   const [macrosData, setMacrosData] = useState({
-    calories: 0,
-    protein: 0,
-    carbohydrate: 0,
-    fats: 0,
-    calorieGoal: 2000,
-    proteinGoal: 150,
-    carbGoal: 200,
-    fatsGoal: 50,
+    calories: currentUser.calories,
+    protein: currentUser.protein,
+    carbohydrate: currentUser.carbohydrate,
+    fats: currentUser.fats,
+    calorieGoal: currentUser.calorieGoal,
+    proteinGoal: currentUser.proteinGoal,
+    carbGoal: currentUser.carbGoal,
+    fatsGoal: currentUser.fatsGoal,
   });
+  console.log(macrosData);
   const foodItems = [
     {
       id: 1,
