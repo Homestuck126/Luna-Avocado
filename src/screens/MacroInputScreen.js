@@ -10,10 +10,12 @@ import {
 import MacroBars from "../components/MacroBars";
 import FoodListItem from "../components/FoodListItem";
 import FoodItemModal from "../components/FoodItemModal";
+import LogFoodModal from "../components/LogFoodModal";
 
 const MacroInputScreen = () => {
   const [foodItemModalVisible, setFoodItemModalVisible] = useState(false);
-  const [logFoodModalVisible, logFoodItemModalVisible] = useState(false);
+  const [logFoodModalVisible, setLogFoodModalVisible] = useState(false);
+
   const foodItems = [
     {
       id: 1,
@@ -45,6 +47,11 @@ const MacroInputScreen = () => {
         onClose={() => setFoodItemModalVisible(false)}
       ></FoodItemModal>
 
+      <LogFoodModal
+              isVisible={logFoodModalVisible}
+              onClose={() => setLogFoodModalVisible(false)}
+      ></LogFoodModal>
+
       {/* Macros top 1/4 screen */}
       <Text style={styles.header}>Today's Progress</Text>
       <MacroBars></MacroBars>
@@ -66,9 +73,11 @@ const MacroInputScreen = () => {
               },
               styles.button,
             ]}
+            onPress={() => setLogFoodModalVisible(true)}
           >
             <Text style={styles.buttonText}>Log Food</Text>
           </Pressable>
+          
           <Pressable
             style={({ pressed }) => [
               {
