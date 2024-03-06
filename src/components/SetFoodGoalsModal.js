@@ -52,6 +52,7 @@ const SetFoodGoalsModal = ({
     >
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
+          <Text style={styles.header}>Set New Goals</Text>
           <View style={styles.inputContainer}>
             <TextInput
               style={styles.input}
@@ -191,6 +192,12 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingRight: 10,
     fontSize: 16,
+  },
+  header: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 10,
+    alignSelf: "flex-start",
   },
 });
 export default SetFoodGoalsModal;
