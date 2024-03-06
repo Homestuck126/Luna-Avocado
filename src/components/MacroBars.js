@@ -6,18 +6,22 @@ const MacroBars = ({ data }) => {
   return (
     <View style={styles.allMacrosContainer}>
       <View style={styles.macroContainer}>
-        <Text style={styles.macroText}>Calories: {data.calories}</Text>
+        <Text style={styles.macroText}>
+          Calories: {data.calories} / {data.calorieGoal}
+        </Text>
         <Progress.Bar
-          progress={data.calories / data.calorieGoal}
+          progress={data.calories / Math.max(data.calorieGoal, data.calories)}
           height={10}
           width={null}
         ></Progress.Bar>
       </View>
 
       <View style={styles.macroContainer}>
-        <Text style={styles.macroText}>Protein: {data.protein}g</Text>
+        <Text style={styles.macroText}>
+          Protein: {data.protein}g / {data.proteinGoal}g
+        </Text>
         <Progress.Bar
-          progress={data.protein / data.proteinGoal}
+          progress={data.protein / Math.max(data.protein, data.proteinGoal)}
           height={10}
           width={null}
           color="#FA8072"
@@ -26,10 +30,12 @@ const MacroBars = ({ data }) => {
 
       <View style={styles.macroContainer}>
         <Text style={styles.macroText}>
-          Carbohydrates: {data.carbohydrate}g
+          Carbohydrates: {data.carbohydrate}g / {data.carbGoal}g
         </Text>
         <Progress.Bar
-          progress={data.carbohydrate / data.carbGoal}
+          progress={
+            data.carbohydrate / Math.max(data.carbohydrate, data.carbGoal)
+          }
           height={10}
           width={null}
           color="#3CB371"
@@ -37,9 +43,11 @@ const MacroBars = ({ data }) => {
       </View>
 
       <View style={styles.macroContainer}>
-        <Text style={styles.macroText}>Fats: {data.fats}g</Text>
+        <Text style={styles.macroText}>
+          Fats: {data.fats}g / {data.fatsGoal}g
+        </Text>
         <Progress.Bar
-          progress={data.fats / data.fatsGoal}
+          progress={data.fats / Math.max(data.fats, data.fatsGoal)}
           height={10}
           width={null}
           color="#FFD700"

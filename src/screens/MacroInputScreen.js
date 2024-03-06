@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { View, Text, StyleSheet, ScrollView, Pressable } from "react-native";
 import MacroBars from "../components/MacroBars";
@@ -7,7 +6,7 @@ import FoodItemModal from "../components/FoodItemModal";
 import SetFoodGoalsModal from "../components/SetFoodGoalsModal";
 
 const IPADDR = process.env.EXPO_PUBLIC_IPADDR;
-const apiUrls =  "http://" + IPADDR +":3000/users";
+const apiUrls = "http://" + IPADDR + ":3000/users";
 const MacroInputScreen = () => {
   const [foodItemModalSelectedFood, setFoodItemModalSelectedFood] =
     useState(null);
@@ -24,6 +23,7 @@ const MacroInputScreen = () => {
     carbGoal: 200,
     fatsGoal: 50,
   });
+
   const foodItems = [
     {
       id: 1,
@@ -46,6 +46,26 @@ const MacroInputScreen = () => {
       macros: [70, 2, 0, 0], //[protein, carbs, fats]
     },
   ];
+
+  const getMacroGoalsData = () => {
+    return Object.keys(macrosData)
+      .slice(-4)
+      .map((property) => macrosData[property]);
+  };
+
+  //broken fix
+  const updateMacroGoals = (newGoalsArray) => {
+    setMacrosData((prevData) => {
+      const newData = { ...prevData };
+      const goalsToUpdate = Object.keys(newData).slice(-4);
+      goalsToUpdate.forEach((property, index) => {
+        newData[property] = newGoalsArray[index];
+      });
+      //console.log("new data after updateMacroGoals() called from MacroInputScreen: ");
+      //console.log(newData);
+      return newData;
+    });
+  };
 
   const updateMacrosData = () => {
     const updatedMacrosData = foodItems.reduce(
@@ -85,7 +105,8 @@ const MacroInputScreen = () => {
       <SetFoodGoalsModal
         isVisible={foodGoalsModalVisible}
         onClose={() => setFoodGoalsModalVisible(false)}
-        goalsData={macrosData}
+        goalsData={getMacroGoalsData}
+        updateMacroGoals={updateMacroGoals}
       ></SetFoodGoalsModal>
 
       {/* Macros bars top 1/4 screen */}
