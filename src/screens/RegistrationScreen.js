@@ -30,6 +30,14 @@ const RegistrationScreen = (props) => {
         username: username,
         password: password,
         bio: userBio,
+        calories: 0,
+        protein: 0,
+        carbohydrate: 0,
+        fats: 0,
+        calorieGoal: 2000,
+        proteinGoal: 150,
+        carbGoal: 200,
+        fatsGoal: 50,
       };
       console.log(userData)
       axios

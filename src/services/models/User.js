@@ -14,10 +14,6 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  macros: {
-    type: Number,
-    required: false
-  },
   bio: {
     type: String,
     required: false

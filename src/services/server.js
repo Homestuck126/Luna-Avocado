@@ -36,10 +36,11 @@ app.patch('/users/:username', async (req, res) => {
   try {
     console.log("a");
     const namesearch = req.params.username
+    console.log(namesearch);
     const info = req.body
     console.log(namesearch);
 
-   const updatedUser = await User.findOneAndUpdate({username: namesearch}, info, {returnNewDocument: true});
+   const updatedUser = await User.findOneAndUpdate({username: namesearch}, info, {new: true});
     if (!updatedUser) {
       return res.status(404).json({ message: 'User not found' });
     }
@@ -59,9 +60,16 @@ app.post("/addUser", async (req, res) => {
         name,
         password,
         username,
-        macros,
         bio,
         Friends,
+        calories,
+        protein,
+        carbohydrate,
+        fats,
+        calorieGoal,
+        proteinGoal,
+        carbGoal,
+        fatsGoal,
       } = req.body;
   
       //create a new user
@@ -69,9 +77,16 @@ app.post("/addUser", async (req, res) => {
         name,
         password,
         username,
-        macros,
         bio,
         Friends,
+        calories,
+        protein,
+        carbohydrate,
+        fats,
+        calorieGoal,
+        proteinGoal,
+        carbGoal,
+        fatsGoal,
       });
   
       await newUser.save();
