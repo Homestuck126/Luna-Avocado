@@ -48,8 +48,8 @@ const MacroInputScreen = () => {
       ></FoodItemModal>
 
       <LogFoodModal
-              isVisible={logFoodModalVisible}
-              onClose={() => setLogFoodModalVisible(false)}
+        isVisible={logFoodModalVisible}
+        onClose={() => setLogFoodModalVisible(false)}
       ></LogFoodModal>
 
       {/* Macros top 1/4 screen */}
@@ -77,7 +77,7 @@ const MacroInputScreen = () => {
           >
             <Text style={styles.buttonText}>Log Food</Text>
           </Pressable>
-          
+
           <Pressable
             style={({ pressed }) => [
               {
