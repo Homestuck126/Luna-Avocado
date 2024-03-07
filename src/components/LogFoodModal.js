@@ -8,8 +8,6 @@ import {
   TextInput,
 } from "react-native";
 
-//----------------------------------------------------------------------------------}
-
 const LogFoodModal = ({ isVisible, onClose, addFood }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [foodName, setFoodName] = useState("");
@@ -29,7 +27,7 @@ const LogFoodModal = ({ isVisible, onClose, addFood }) => {
 
   const handleSubmit = () => {
     //console.log({ foodName, calories, protein, carbohydrates, fat });
-    if (calories > 0 && protein > 0 && carbohydrates > 0 && fat > 0) {
+    if (calories > 0 || protein > 0 || carbohydrates > 0 || fat > 0) {
       addFood({
         id: null,
         name: foodName,
