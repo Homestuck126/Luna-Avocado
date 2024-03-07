@@ -35,10 +35,7 @@ const FriendsScreen = ({ currentUser }) => {
     axios
       .patch(temp, updateData)
       .then((response) => {
-        Alert.alert(
-          "Friend added Successfully",
-          "Your friend has been added"
-        );
+        Alert.alert("Friend added Successfully", "Your friend has been added");
       })
       .catch((error) => {
         Alert.alert(
@@ -50,7 +47,12 @@ const FriendsScreen = ({ currentUser }) => {
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
+    <ScrollView
+      contentContainerStyle={styles.container}
+      scrollIndicatorInsets={{ right: 1 }}
+      showsVerticalScrollIndicator={true}
+      indicatorStyle="black"
+    >
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
