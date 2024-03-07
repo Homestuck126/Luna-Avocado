@@ -66,6 +66,7 @@ const RegistrationScreen = (props) => {
             onChangeText={(text) => setUsername(text)}
             autoCapitalize="none"
             textAlign="left"
+            testID="username-input"
           />
         </View>
         <View style={styles.inputContainer}>
@@ -77,6 +78,7 @@ const RegistrationScreen = (props) => {
             autoCapitalize="none"
             textAlign="left"
             secureTextEntry={!showPassword}
+            testID="password-input"
           />
           <MaterialCommunityIcons
             name={showPassword ? "eye-off" : "eye"}
