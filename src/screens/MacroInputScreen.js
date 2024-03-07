@@ -8,7 +8,6 @@ import SetFoodGoalsModal from "../components/SetFoodGoalsModal";
 
 import LogFoodModal from "../components/LogFoodModal";
 
-
 const IPADDR = process.env.EXPO_PUBLIC_IPADDR;
 const apiUrls = "http://" + IPADDR + ":3000/users";
 const MacroInputScreen = () => {
@@ -30,8 +29,7 @@ const MacroInputScreen = () => {
 
   const [logFoodModalVisible, setLogFoodModalVisible] = useState(false);
 
-
-  const foodItems = [
+  const [foodItems, setFoodItems] = useState([
     {
       id: 1,
       name: "chicken",
@@ -52,7 +50,7 @@ const MacroInputScreen = () => {
       name: "banana",
       macros: [70, 2, 0, 0], //[protein, carbs, fats]
     },
-  ];
+  ]);
 
   const getMacroGoalsData = () => {
     return Object.keys(macrosData)
@@ -81,6 +79,7 @@ const MacroInputScreen = () => {
         acc.protein += foodItem.macros[1];
         acc.carbohydrate += foodItem.macros[2];
         acc.fats += foodItem.macros[3];
+        console.log("accumulator values: ", acc);
         return acc;
       },
       {
@@ -100,6 +99,19 @@ const MacroInputScreen = () => {
     });
   };
 
+  const addFood = (item) => {
+    setFoodItems((prevData) => {
+      const newFood = {
+        ...item,
+        id: prevData.length + 1,
+      };
+      console.log("new food", newFood);
+      const newData = [...prevData];
+      newData.push(newFood);
+      return newData;
+    });
+  };
+
   return (
     <View style={styles.container}>
       {/* Modals/Popups */}
@@ -109,7 +121,6 @@ const MacroInputScreen = () => {
         foodData={foodItemModalSelectedFood}
       ></FoodItemModal>
 
-
       <SetFoodGoalsModal
         isVisible={foodGoalsModalVisible}
         onClose={() => setFoodGoalsModalVisible(false)}
@@ -117,11 +128,14 @@ const MacroInputScreen = () => {
         updateMacroGoals={updateMacroGoals}
       ></SetFoodGoalsModal>
 
-      {/* Macros bars top 1/4 screen */}
-
       <LogFoodModal
         isVisible={logFoodModalVisible}
-        onClose={() => setLogFoodModalVisible(false)}
+        onClose={() => {
+          setLogFoodModalVisible(false);
+          updateMacrosData();
+          console.log(foodItems);
+        }}
+        addFood={addFood}
       ></LogFoodModal>
 
       {/* Macros top 1/4 screen */}
@@ -147,7 +161,6 @@ const MacroInputScreen = () => {
               },
               styles.button,
             ]}
-
             onPress={() => setLogFoodModalVisible(true)}
           >
             <Text style={styles.buttonText}>Log Food</Text>

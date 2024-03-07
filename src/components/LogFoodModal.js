@@ -13,10 +13,10 @@ import {
 const LogFoodModal = ({ isVisible, onClose, addFood }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [foodName, setFoodName] = useState("");
-  const [calories, setCalories] = useState("");
-  const [protein, setProtein] = useState("");
-  const [carbohydrates, setCarbohydrates] = useState("");
-  const [fat, setFat] = useState("");
+  const [calories, setCalories] = useState(0);
+  const [protein, setProtein] = useState(0);
+  const [carbohydrates, setCarbohydrates] = useState(0);
+  const [fat, setFat] = useState(0);
 
   useEffect(() => {
     setModalVisible(isVisible);
@@ -28,13 +28,24 @@ const LogFoodModal = ({ isVisible, onClose, addFood }) => {
   };
 
   const handleSubmit = () => {
-    console.log({ foodName, calories, protein, carbohydrates, fat });
+    //console.log({ foodName, calories, protein, carbohydrates, fat });
+    if (calories > 0 && protein > 0 && carbohydrates > 0 && fat > 0) {
+      addFood({
+        id: null,
+        name: foodName,
+        macros: [
+          Number(calories),
+          Number(protein),
+          Number(carbohydrates),
+          Number(fat),
+        ],
+      });
+    }
     setFoodName("");
-    setCalories("");
-    setProtein("");
-    setCarbohydrates("");
-    setFat("");
-
+    setCalories(0);
+    setProtein(0);
+    setCarbohydrates(0);
+    setFat(0);
     closeModal();
   };
 
