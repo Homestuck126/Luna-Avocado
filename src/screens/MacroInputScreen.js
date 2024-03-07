@@ -8,18 +8,12 @@ import FoodListItem from "../components/FoodListItem";
 import FoodItemModal from "../components/FoodItemModal";
 
 import SetFoodGoalsModal from "../components/SetFoodGoalsModal";
+import LogFoodModal from "../components/LogFoodModal";
 //import LoginScreen from "./LoginScreen";
 
-const MacroInputScreen = ({currentUser}) => {
+const MacroInputScreen = ({ currentUser }) => {
   const IPADDR = process.env.EXPO_PUBLIC_IPADDR;
-  const apiUrls =  "http://" + IPADDR +":3000/users";
-
-
-import LogFoodModal from "../components/LogFoodModal";
-
-const IPADDR = process.env.EXPO_PUBLIC_IPADDR;
-const apiUrls = "http://" + IPADDR + ":3000/users";
-const MacroInputScreen = () => {
+  const apiUrls = "http://" + IPADDR + ":3000/users";
 
   const [foodItemModalSelectedFood, setFoodItemModalSelectedFood] =
     useState(null);
@@ -55,13 +49,9 @@ const MacroInputScreen = () => {
       return newData;
     });
   };
- const updateMacrosData = () => {
-    
-
-  
 
   const updateMacrosData = (newFoodList) => {
-    const _username = currentUser.username
+    const _username = currentUser.username;
     const updatedMacrosData = newFoodList.reduce(
       (acc, foodItem) => {
         acc.calories += foodItem.macros[0];
@@ -86,20 +76,19 @@ const MacroInputScreen = () => {
       fats: updatedMacrosData.fats,
     }));
 
-  
     console.log(_username);
     axios
-      .patch(`http://localhost:3000/users/${_username}`, {$set:{
-        protein: updatedMacrosData.protein, 
-        carbohydrate: updatedMacrosData.carbohydrate, 
-        fats: updatedMacrosData.fats, 
-        calories: updatedMacrosData.calories
-      }})
+      .patch(`http://localhost:3000/users/${_username}`, {
+        $set: {
+          protein: updatedMacrosData.protein,
+          carbohydrate: updatedMacrosData.carbohydrate,
+          fats: updatedMacrosData.fats,
+          calories: updatedMacrosData.calories,
+        },
+      })
       .then((response) => {
-        Alert.alert(
-          "Macros Update Successful"
-        );
-        console.log('Macros data updated successfully:', response.data);
+        Alert.alert("Macros Update Successful");
+        console.log("Macros data updated successfully:", response.data);
       })
       .catch((error) => {
         Alert.alert(
@@ -118,11 +107,12 @@ const MacroInputScreen = () => {
       };
 
       const newData = [...prevData, newFood];
-      console.log("new food Item: ", newData);
+      //console.log("new food Item: ", newData);
       updateMacrosData(newData);
       return newData;
     });
-  
+  };
+
   return (
     <View style={styles.container}>
       {/* Modals/Popups */}
