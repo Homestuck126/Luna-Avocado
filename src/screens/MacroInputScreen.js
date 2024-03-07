@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { View, Text, StyleSheet, ScrollView, Pressable } from "react-native";
 import { v4 as uuidv4 } from "uuid";
 
@@ -7,12 +8,19 @@ import FoodListItem from "../components/FoodListItem";
 import FoodItemModal from "../components/FoodItemModal";
 
 import SetFoodGoalsModal from "../components/SetFoodGoalsModal";
+//import LoginScreen from "./LoginScreen";
+
+const MacroInputScreen = ({currentUser}) => {
+  const IPADDR = process.env.EXPO_PUBLIC_IPADDR;
+  const apiUrls =  "http://" + IPADDR +":3000/users";
+
 
 import LogFoodModal from "../components/LogFoodModal";
 
 const IPADDR = process.env.EXPO_PUBLIC_IPADDR;
 const apiUrls = "http://" + IPADDR + ":3000/users";
 const MacroInputScreen = () => {
+
   const [foodItemModalSelectedFood, setFoodItemModalSelectedFood] =
     useState(null);
   const [foodItemModalVisible, setFoodItemModalVisible] = useState(false);
@@ -28,7 +36,6 @@ const MacroInputScreen = () => {
     carbGoal: 200,
     fatsGoal: 50,
   });
-
   const [foodItems, setFoodItems] = useState([]);
 
   const getMacroGoalsData = () => {
@@ -36,7 +43,6 @@ const MacroInputScreen = () => {
       .slice(-4)
       .map((property) => macrosData[property]);
   };
-
   const updateMacroGoals = (newGoalsArray) => {
     setMacrosData((prevData) => {
       const newData = { ...prevData };
@@ -49,8 +55,13 @@ const MacroInputScreen = () => {
       return newData;
     });
   };
+ const updateMacrosData = () => {
+    
+
+  
 
   const updateMacrosData = (newFoodList) => {
+    const _username = currentUser.username
     const updatedMacrosData = newFoodList.reduce(
       (acc, foodItem) => {
         acc.calories += foodItem.macros[0];
@@ -74,6 +85,29 @@ const MacroInputScreen = () => {
       carbohydrate: updatedMacrosData.carbohydrate,
       fats: updatedMacrosData.fats,
     }));
+
+  
+    console.log(_username);
+    axios
+      .patch(`http://localhost:3000/users/${_username}`, {$set:{
+        protein: updatedMacrosData.protein, 
+        carbohydrate: updatedMacrosData.carbohydrate, 
+        fats: updatedMacrosData.fats, 
+        calories: updatedMacrosData.calories
+      }})
+      .then((response) => {
+        Alert.alert(
+          "Macros Update Successful"
+        );
+        console.log('Macros data updated successfully:', response.data);
+      })
+      .catch((error) => {
+        Alert.alert(
+          "Macros Update Failed",
+          "An error occurred during macros goals update"
+        );
+        console.log("update failed", error);
+      });
   };
 
   const addFood = (item) => {
@@ -88,8 +122,7 @@ const MacroInputScreen = () => {
       updateMacrosData(newData);
       return newData;
     });
-  };
-
+  
   return (
     <View style={styles.container}>
       {/* Modals/Popups */}
