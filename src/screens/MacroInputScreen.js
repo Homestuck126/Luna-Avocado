@@ -3,7 +3,11 @@ import { View, Text, StyleSheet, ScrollView, Pressable } from "react-native";
 import MacroBars from "../components/MacroBars";
 import FoodListItem from "../components/FoodListItem";
 import FoodItemModal from "../components/FoodItemModal";
+
 import SetFoodGoalsModal from "../components/SetFoodGoalsModal";
+
+import LogFoodModal from "../components/LogFoodModal";
+
 
 const IPADDR = process.env.EXPO_PUBLIC_IPADDR;
 const apiUrls = "http://" + IPADDR + ":3000/users";
@@ -11,7 +15,7 @@ const MacroInputScreen = () => {
   const [foodItemModalSelectedFood, setFoodItemModalSelectedFood] =
     useState(null);
   const [foodItemModalVisible, setFoodItemModalVisible] = useState(false);
-  const [logFoodModalVisible, setLogFoodItemModalVisible] = useState(false);
+
   const [foodGoalsModalVisible, setFoodGoalsModalVisible] = useState(false);
   const [macrosData, setMacrosData] = useState({
     calories: 0,
@@ -23,6 +27,9 @@ const MacroInputScreen = () => {
     carbGoal: 200,
     fatsGoal: 50,
   });
+
+  const [logFoodModalVisible, setLogFoodModalVisible] = useState(false);
+
 
   const foodItems = [
     {
@@ -102,6 +109,7 @@ const MacroInputScreen = () => {
         foodData={foodItemModalSelectedFood}
       ></FoodItemModal>
 
+
       <SetFoodGoalsModal
         isVisible={foodGoalsModalVisible}
         onClose={() => setFoodGoalsModalVisible(false)}
@@ -110,6 +118,14 @@ const MacroInputScreen = () => {
       ></SetFoodGoalsModal>
 
       {/* Macros bars top 1/4 screen */}
+
+      <LogFoodModal
+        isVisible={logFoodModalVisible}
+        onClose={() => setLogFoodModalVisible(false)}
+      ></LogFoodModal>
+
+      {/* Macros top 1/4 screen */}
+
       <Text style={styles.header}>Today's Progress</Text>
       <MacroBars data={macrosData}></MacroBars>
       {/* ScrollView bottom 3/4 */}
@@ -131,13 +147,12 @@ const MacroInputScreen = () => {
               },
               styles.button,
             ]}
-            onPress={() => {
-              updateMacrosData();
-              console.log(macrosData);
-            }}
+
+            onPress={() => setLogFoodModalVisible(true)}
           >
             <Text style={styles.buttonText}>Log Food</Text>
           </Pressable>
+
           <Pressable
             style={({ pressed }) => [
               {
