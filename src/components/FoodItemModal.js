@@ -98,6 +98,24 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     flexDirection: "row",
   },
+  inputContainer: {
+    flexDirection: "row",
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "space-between",
+    backgroundColor: "rgb(245,245,245)",
+    borderRadius: 8,
+    paddingHorizontal: 14,
+    marginBottom: 10,
+  },
+  input: {
+    height: 40,
+    width: 200,
+    color: "#333",
+    paddingVertical: 10,
+    paddingRight: 10,
+    fontSize: 16,
+  },
 });
 
 export default FoodItemModal;

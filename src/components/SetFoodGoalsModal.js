@@ -8,29 +8,37 @@ import {
   TextInput,
 } from "react-native";
 
-const SetFoodGoalsModal = ({ isVisible, onClose, goalsData }) => {
+const SetFoodGoalsModal = ({
+  isVisible,
+  onClose,
+  goalsData,
+  updateMacroGoals,
+}) => {
+  const macroGoals = goalsData();
   const [modalVisible, setModalVisible] = useState(false);
-  const [updatedGoalsData, setUpdatedGoalsData] = useState([goalsData]);
+  const [updatedGoalsData, setUpdatedGoalsData] = useState(macroGoals);
   useEffect(() => {
     setModalVisible(isVisible);
-    setUpdatedGoalsData([goalsData]);
-  }, [isVisible, goalsData]);
+  }, [isVisible]);
   const closeModal = () => {
     setModalVisible(false);
     onClose(false);
   };
 
+  //handles updating updatedGoalsData whenever text is changed in the input boxes.
+  const handleInputChange = (index, value) => {
+    setUpdatedGoalsData((prevData) => {
+      const newData = [...prevData]; //spread operator to create a shallow copy
+      newData[index] = Number(value);
+      return newData;
+    });
+  };
+
+  //handles interaction when submit button is pressed. Calls the corresponding updateMacroGoals function from prop
   const handleSubmit = () => {
-    // Perform any necessary actions when the "Edit" button is pressed
-    // For example, update the goalsData and call onDataUpdate
-    // For now, let's just log the goalsData
-    console.log(goalsData);
-
-    // If you want to update goalsData and pass it back to the parent component:
-    setUpdatedGoalsData([...updatedGoalsData]);
-
-    // Call the onDataUpdate callback to pass the updated data to the parent component
-
+    //console.log("updatedGoalsData being passed from SetFoodGoalsModal on handleSubmit()");
+    //console.log(updatedGoalsData);
+    updateMacroGoals(updatedGoalsData);
     closeModal();
   };
   return (
@@ -44,41 +52,49 @@ const SetFoodGoalsModal = ({ isVisible, onClose, goalsData }) => {
     >
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
+          <Text style={styles.header}>Set New Goals</Text>
           <View style={styles.inputContainer}>
             <TextInput
               style={styles.input}
               placeholder="calorie goal"
-              value={updatedGoalsData[4]}
+              value={updatedGoalsData[0]}
               autoCapitalize="none"
               textAlign="left"
               inputMode="numeric"
+              onChangeText={(text) => handleInputChange(0, text)}
             />
           </View>
           <View style={styles.inputContainer}>
             <TextInput
               style={styles.input}
               placeholder="protein goal"
-              value={updatedGoalsData[5]}
+              value={updatedGoalsData[1]}
               autoCapitalize="none"
               textAlign="left"
+              inputMode="numeric"
+              onChangeText={(text) => handleInputChange(1, text)}
             />
           </View>
           <View style={styles.inputContainer}>
             <TextInput
               style={styles.input}
               placeholder="carbohydrates goal"
-              value={updatedGoalsData[6]}
+              value={updatedGoalsData[2]}
               autoCapitalize="none"
               textAlign="left"
+              inputMode="numeric"
+              onChangeText={(text) => handleInputChange(2, text)}
             />
           </View>
           <View style={styles.inputContainer}>
             <TextInput
               style={styles.input}
               placeholder="fats goal"
-              value={updatedGoalsData[7]}
+              value={updatedGoalsData[3]}
               autoCapitalize="none"
               textAlign="left"
+              inputMode="numeric"
+              onChangeText={(text) => handleInputChange(3, text)}
             />
           </View>
           <View style={styles.buttonContainer}>
@@ -176,6 +192,12 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingRight: 10,
     fontSize: 16,
+  },
+  header: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 10,
+    alignSelf: "flex-start",
   },
 });
 export default SetFoodGoalsModal;

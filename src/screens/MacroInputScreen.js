@@ -1,10 +1,12 @@
-
 import React, { useState } from "react";
 import axios from "axios";
 import { View, Text, StyleSheet, ScrollView, Pressable } from "react-native";
+import { v4 as uuidv4 } from "uuid";
+
 import MacroBars from "../components/MacroBars";
 import FoodListItem from "../components/FoodListItem";
 import FoodItemModal from "../components/FoodItemModal";
+
 import SetFoodGoalsModal from "../components/SetFoodGoalsModal";
 //import LoginScreen from "./LoginScreen";
 
@@ -12,11 +14,18 @@ const MacroInputScreen = ({currentUser}) => {
   const IPADDR = process.env.EXPO_PUBLIC_IPADDR;
   const apiUrls =  "http://" + IPADDR +":3000/users";
 
+
+import LogFoodModal from "../components/LogFoodModal";
+
+const IPADDR = process.env.EXPO_PUBLIC_IPADDR;
+const apiUrls = "http://" + IPADDR + ":3000/users";
+const MacroInputScreen = () => {
+
   const [foodItemModalSelectedFood, setFoodItemModalSelectedFood] =
     useState(null);
   const [foodItemModalVisible, setFoodItemModalVisible] = useState(false);
-  const [logFoodModalVisible, setLogFoodItemModalVisible] = useState(false);
   const [foodGoalsModalVisible, setFoodGoalsModalVisible] = useState(false);
+  const [logFoodModalVisible, setLogFoodModalVisible] = useState(false);
   const [macrosData, setMacrosData] = useState({
     calories: 0,
     protein: 0,
@@ -27,32 +36,33 @@ const MacroInputScreen = ({currentUser}) => {
     carbGoal: 200,
     fatsGoal: 50,
   });
-  const foodItems = [
-    {
-      id: 1,
-      name: "chicken",
-      macros: [200, 25, 15, 20], //[calories, protein, carbs, fats]
-    },
-    {
-      id: 2,
-      name: "beef",
-      macros: [300, 30, 8, 18], //[calories, protein, carbs, fats]
-    },
-    {
-      id: 3,
-      name: "pork",
-      macros: [500, 13, 12, 15], //[calories, protein, carbs, fats]
-    },
-    {
-      id: 4,
-      name: "banana",
-      macros: [70, 2, 0, 0], //[calories, protein, carbs, fats]
-    },
-  ];
+  const [foodItems, setFoodItems] = useState([]);
 
-  const updateMacrosData = () => {
+  const getMacroGoalsData = () => {
+    return Object.keys(macrosData)
+      .slice(-4)
+      .map((property) => macrosData[property]);
+  };
+  const updateMacroGoals = (newGoalsArray) => {
+    setMacrosData((prevData) => {
+      const newData = { ...prevData };
+      const goalsToUpdate = Object.keys(newData).slice(-4);
+      goalsToUpdate.forEach((property, index) => {
+        newData[property] = newGoalsArray[index];
+      });
+      //console.log("new data after updateMacroGoals() called from MacroInputScreen: ");
+      //console.log(newData);
+      return newData;
+    });
+  };
+ const updateMacrosData = () => {
+    
+
+  
+
+  const updateMacrosData = (newFoodList) => {
     const _username = currentUser.username
-    const updatedMacrosData = foodItems.reduce(
+    const updatedMacrosData = newFoodList.reduce(
       (acc, foodItem) => {
         acc.calories += foodItem.macros[0];
         acc.protein += foodItem.macros[1];
@@ -68,13 +78,15 @@ const MacroInputScreen = ({currentUser}) => {
       }
     );
 
-    setMacrosData({
-      ...macrosData,
+    setMacrosData((prevData) => ({
+      ...prevData,
       calories: updatedMacrosData.calories,
       protein: updatedMacrosData.protein,
       carbohydrate: updatedMacrosData.carbohydrate,
       fats: updatedMacrosData.fats,
-    });
+    }));
+
+  
     console.log(_username);
     axios
       .patch(`http://localhost:3000/users/${_username}`, {$set:{
@@ -98,6 +110,19 @@ const MacroInputScreen = ({currentUser}) => {
       });
   };
 
+  const addFood = (item) => {
+    setFoodItems((prevData) => {
+      const newFood = {
+        ...item,
+        id: foodItems.length + 1,
+      };
+
+      const newData = [...prevData, newFood];
+      console.log("new food Item: ", newData);
+      updateMacrosData(newData);
+      return newData;
+    });
+  
   return (
     <View style={styles.container}>
       {/* Modals/Popups */}
@@ -110,10 +135,20 @@ const MacroInputScreen = ({currentUser}) => {
       <SetFoodGoalsModal
         isVisible={foodGoalsModalVisible}
         onClose={() => setFoodGoalsModalVisible(false)}
-        goalsData={macrosData}
+        goalsData={getMacroGoalsData}
+        updateMacroGoals={updateMacroGoals}
       ></SetFoodGoalsModal>
 
-      {/* Macros bars top 1/4 screen */}
+      <LogFoodModal
+        isVisible={logFoodModalVisible}
+        onClose={() => {
+          setLogFoodModalVisible(false);
+        }}
+        addFood={addFood}
+      ></LogFoodModal>
+
+      {/* Macros top 1/4 screen */}
+
       <Text style={styles.header}>Today's Progress</Text>
       <MacroBars data={macrosData}></MacroBars>
       {/* ScrollView bottom 3/4 */}
@@ -136,12 +171,13 @@ const MacroInputScreen = ({currentUser}) => {
               styles.button,
             ]}
             onPress={() => {
-              updateMacrosData();
-              console.log(macrosData);
+              setLogFoodModalVisible(true);
+              console.log("food list on open modal: ", foodItems);
             }}
           >
             <Text style={styles.buttonText}>Log Food</Text>
           </Pressable>
+
           <Pressable
             style={({ pressed }) => [
               {
