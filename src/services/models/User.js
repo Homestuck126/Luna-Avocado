@@ -14,10 +14,6 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  macros: {
-    type: Number,
-    required: false
-  },
   bio: {
     type: String,
     required: false
@@ -26,6 +22,38 @@ const userSchema = new mongoose.Schema({
     type: Array,
     required: false
   },
+  calories: {
+    type: Number,
+    required: false
+  },
+  protein: {
+    type: Number,
+    required: false
+  },
+  carbohydrate: {
+    type: Number,
+    required: false
+  },
+  fats: {
+    type: Number,
+    required: false
+  },
+  calorieGoal: {
+    type: Number,
+    required: false
+  },
+  proteinGoal: {
+    type: Number,
+    required: false
+  },
+  carbGoal: {
+    type: Number,
+    required: false
+  },
+  fatsGoal: {
+    type: Number,
+    required: false
+  }
 }, { versionKey: false });
 
 const User = mongoose.model('User', userSchema);

@@ -26,7 +26,7 @@ export const AppStack = () => {
 
       <Drawer.Screen
         name="MacroInput"
-        component={MacroInputScreen}
+        component={() => <MacroInputScreen currentUser={userContext} />}
         options={{
           drawerLabel: "Feed Pet",
           headerTitle: "Feed Pet",
