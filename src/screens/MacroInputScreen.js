@@ -1,20 +1,35 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  Pressable,
-  Modal,
-} from "react-native";
+import { View, Text, StyleSheet, ScrollView, Pressable } from "react-native";
 import MacroBars from "../components/MacroBars";
 import FoodListItem from "../components/FoodListItem";
 import FoodItemModal from "../components/FoodItemModal";
+
+import SetFoodGoalsModal from "../components/SetFoodGoalsModal";
+
 import LogFoodModal from "../components/LogFoodModal";
 
+
+const IPADDR = process.env.EXPO_PUBLIC_IPADDR;
+const apiUrls = "http://" + IPADDR + ":3000/users";
 const MacroInputScreen = () => {
+  const [foodItemModalSelectedFood, setFoodItemModalSelectedFood] =
+    useState(null);
   const [foodItemModalVisible, setFoodItemModalVisible] = useState(false);
+
+  const [foodGoalsModalVisible, setFoodGoalsModalVisible] = useState(false);
+  const [macrosData, setMacrosData] = useState({
+    calories: 0,
+    protein: 0,
+    carbohydrate: 0,
+    fats: 0,
+    calorieGoal: 2000,
+    proteinGoal: 150,
+    carbGoal: 200,
+    fatsGoal: 50,
+  });
+
   const [logFoodModalVisible, setLogFoodModalVisible] = useState(false);
+
 
   const foodItems = [
     {
@@ -30,7 +45,7 @@ const MacroInputScreen = () => {
     {
       id: 3,
       name: "pork",
-      macros: [350, 13, 12, 15], //[protein, carbs, fats]
+      macros: [500, 13, 12, 15], //[protein, carbs, fats]
     },
     {
       id: 4,
@@ -39,13 +54,70 @@ const MacroInputScreen = () => {
     },
   ];
 
+  const getMacroGoalsData = () => {
+    return Object.keys(macrosData)
+      .slice(-4)
+      .map((property) => macrosData[property]);
+  };
+
+  //broken fix
+  const updateMacroGoals = (newGoalsArray) => {
+    setMacrosData((prevData) => {
+      const newData = { ...prevData };
+      const goalsToUpdate = Object.keys(newData).slice(-4);
+      goalsToUpdate.forEach((property, index) => {
+        newData[property] = newGoalsArray[index];
+      });
+      //console.log("new data after updateMacroGoals() called from MacroInputScreen: ");
+      //console.log(newData);
+      return newData;
+    });
+  };
+
+  const updateMacrosData = () => {
+    const updatedMacrosData = foodItems.reduce(
+      (acc, foodItem) => {
+        acc.calories += foodItem.macros[0];
+        acc.protein += foodItem.macros[1];
+        acc.carbohydrate += foodItem.macros[2];
+        acc.fats += foodItem.macros[3];
+        return acc;
+      },
+      {
+        calories: 0,
+        protein: 0,
+        carbohydrate: 0,
+        fats: 0,
+      }
+    );
+
+    setMacrosData({
+      ...macrosData,
+      calories: updatedMacrosData.calories,
+      protein: updatedMacrosData.protein,
+      carbohydrate: updatedMacrosData.carbohydrate,
+      fats: updatedMacrosData.fats,
+    });
+  };
+
   return (
     <View style={styles.container}>
       {/* Modals/Popups */}
       <FoodItemModal
         isVisible={foodItemModalVisible}
         onClose={() => setFoodItemModalVisible(false)}
+        foodData={foodItemModalSelectedFood}
       ></FoodItemModal>
+
+
+      <SetFoodGoalsModal
+        isVisible={foodGoalsModalVisible}
+        onClose={() => setFoodGoalsModalVisible(false)}
+        goalsData={getMacroGoalsData}
+        updateMacroGoals={updateMacroGoals}
+      ></SetFoodGoalsModal>
+
+      {/* Macros bars top 1/4 screen */}
 
       <LogFoodModal
         isVisible={logFoodModalVisible}
@@ -53,13 +125,15 @@ const MacroInputScreen = () => {
       ></LogFoodModal>
 
       {/* Macros top 1/4 screen */}
+
       <Text style={styles.header}>Today's Progress</Text>
-      <MacroBars></MacroBars>
+      <MacroBars data={macrosData}></MacroBars>
       {/* ScrollView bottom 3/4 */}
       <ScrollView
         style={styles.bottomView}
         showsVerticalScrollIndicator={true}
         indicatorStyle="black"
+        scrollIndicatorInsets={{ right: 1 }}
       >
         {/* Buttons */}
         <View style={styles.buttonsContainer}>
@@ -73,6 +147,7 @@ const MacroInputScreen = () => {
               },
               styles.button,
             ]}
+
             onPress={() => setLogFoodModalVisible(true)}
           >
             <Text style={styles.buttonText}>Log Food</Text>
@@ -87,6 +162,9 @@ const MacroInputScreen = () => {
               },
               styles.button,
             ]}
+            onPress={() => {
+              setFoodGoalsModalVisible(true);
+            }}
           >
             <Text style={styles.buttonText}>Set Goals</Text>
           </Pressable>
@@ -99,7 +177,10 @@ const MacroInputScreen = () => {
             <FoodListItem
               key={food.id}
               data={food}
-              onPress={() => setFoodItemModalVisible(true)}
+              onPress={() => {
+                setFoodItemModalVisible(true);
+                setFoodItemModalSelectedFood(food);
+              }}
             />
           ))}
         </View>
@@ -161,5 +242,4 @@ const styles = StyleSheet.create({
     color: "#696969",
   },
 });
-
 export default MacroInputScreen;

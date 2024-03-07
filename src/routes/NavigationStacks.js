@@ -4,13 +4,17 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import LoginScreen from "../screens/LoginScreen.js";
 import ProfileScreen from "../screens/ProfileScreen.js";
 import FriendsScreen from "../screens/FriendsScreen.js";
-import FriendProfileDisplay from "../screens/FriendProfileDisplay.js";
 import MacroInputScreen from "../screens/MacroInputScreen.js";
+import FriendProfileDisplay from "../screens/FriendProfileDisplay.js";
+import RegistrationScreen from "../screens/RegistrationScreen.js";
+import { useAuth } from "../contexts/Auth.js";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
 export const AppStack = () => {
+  const { userContext } = useAuth();
+  console.log("USERCONTEXT\n", userContext);
   return (
     <Drawer.Navigator initialRouteName="Profile">
       <Drawer.Screen name="Profile" component={ProfileScreen}></Drawer.Screen>
@@ -22,7 +26,9 @@ export const AppStack = () => {
           headerTitle: "Feed Pet",
         }}
       ></Drawer.Screen>
-      <Drawer.Screen name="Friends" component={FriendsStack}></Drawer.Screen>
+      <Drawer.Screen name="Friends" options={{ drawerLabel: "Friends" }}>
+        {() => <FriendsStack currentUser={userContext} />}
+      </Drawer.Screen>
     </Drawer.Navigator>
   );
 };
@@ -37,33 +43,36 @@ export const AuthStack = () => {
           headerShown: false,
         }}
       />
-      {/* //<Stack.Screen name="Register" component={SignInScreen} /> */}
+      <Stack.Screen name="Register" component={RegistrationScreen} />
     </Stack.Navigator>
   );
 };
 
 //sub app stacks
-export const FriendsStack = () => {
+// Your existing FriendsStack component
+
+// ...
+export const FriendsStack = ({ currentUser }) => {
   return (
     <Stack.Navigator
       initialRouteName="FriendsScreen"
       screenOptions={{
-        headerShown: true, // Set to true to display the header by default for all screens in this stack
+        headerShown: true,
       }}
     >
+      <Stack.Screen
+        name="FriendsScreen"
+        component={() => <FriendsScreen currentUser={currentUser} />}
+        options={{
+          headerShown: false,
+        }}
+      />
       <Stack.Screen
         name="FriendProfileDisplay"
         component={FriendProfileDisplay}
         options={{
           headerTitle: "",
           headerBackTitleVisible: false,
-        }}
-      />
-      <Stack.Screen
-        name="FriendsScreen"
-        component={FriendsScreen}
-        options={{
-          headerShown: false,
         }}
       />
     </Stack.Navigator>

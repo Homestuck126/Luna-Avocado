@@ -1,10 +1,10 @@
 import React from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
 
-const FoodListItem = ({ data, onPress }) => {
+const FoodListItem = ({ data, onPress, isPressable = true }) => {
   return (
     <Pressable
-      onPress={() => onPress(data)}
+      onPress={isPressable ? () => onPress(data) : undefined}
       style={({ pressed }) => [
         {
           backgroundColor: pressed
@@ -13,6 +13,7 @@ const FoodListItem = ({ data, onPress }) => {
         },
         styles.container,
       ]}
+      disabled={!isPressable}
     >
       <Text style={styles.name}>{data.name}</Text>
       <Text style={styles.macros}>Calories: {data.macros[0]}</Text>
