@@ -17,7 +17,13 @@ export const AppStack = () => {
   console.log("USERCONTEXT\n", userContext);
   return (
     <Drawer.Navigator initialRouteName="Profile">
-      <Drawer.Screen name="Profile" component={ProfileScreen}></Drawer.Screen>
+      <Drawer.Screen
+        name="Profile"
+        options={{ drawerLabel: "Profile" }}
+      >
+        {() => <ProfileScreen user={userContext} />}
+      </Drawer.Screen>
+
       <Drawer.Screen
         name="MacroInput"
         component={() => <MacroInputScreen currentUser={userContext} />}
