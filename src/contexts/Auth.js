@@ -8,23 +8,21 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const IPADDR = process.env.EXPO_PUBLIC_IPADDR;
-  const apiUrl =  "http://"+IPADDR+":3000/users";
+  const apiUrl =  "http://" + IPADDR + ":3000/users";
   console.log(apiUrl)
   const [authData, setAuthData] = useState(false);
   const [userContext, setUserContext] = useState(null);
+
   const signIn = async (username, password) => {
     const checkPassword = (user) => {
       return user && user.password === password;
     };
 
-
-
     try {
       const response = await axios.get(apiUrl, { timeout: 10000 });
       const users = response.data.users;
-      const matchingUser = users.find(index =>index.username === username);
-      if (matchingUser)
-      {
+      const matchingUser = users.find(index => index.username === username);
+      if (matchingUser) {
         if (checkPassword(matchingUser)) {
           // Perform authentication logic and set user data
           setUserContext(matchingUser);
@@ -46,7 +44,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ authData, signIn, signOut ,userContext }}>
+    <AuthContext.Provider value={{ authData, signIn, signOut, userContext, setUserContext }}>
       {children}
     </AuthContext.Provider>
   );
@@ -57,5 +55,11 @@ export const useAuth = () => {
   if (!context) {
     throw new Error('useAuth must be used within an AuthProvider');
   }
-  return context;
+  return {
+    authData: context.authData,
+    signIn: context.signIn,
+    signOut: context.signOut,
+    userContext: context.userContext,
+    setUserContext: context.setUserContext, // Make sure this is included
+  };
 };

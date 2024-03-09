@@ -38,6 +38,7 @@ const RegistrationScreen = (props) => {
         proteinGoal: 150,
         carbGoal: 200,
         fatsGoal: 50,
+        Friends: []
       };
       console.log(userData)
       axios
