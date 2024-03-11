@@ -1,23 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import * as Progress from "react-native-progress";
 
 const MacroBars = ({ data }) => {
+  const [macroData, setMacroData] = useState(data);
+  useEffect(() => {
+    setMacroData(data);
+  }, [data]);
   return (
     <View style={styles.allMacrosContainer}>
       <View style={styles.macroContainer}>
-        <Text style={styles.macroText}>Calories: {data.calories}</Text>
+        <Text style={styles.macroText}>
+          Calories: {macroData.calories} / {macroData.calorieGoal}
+        </Text>
         <Progress.Bar
-          progress={data.calories / data.calorieGoal}
+          progress={
+            macroData.calories /
+            Math.max(macroData.calorieGoal, macroData.calories)
+          }
           height={10}
           width={null}
         ></Progress.Bar>
       </View>
 
       <View style={styles.macroContainer}>
-        <Text style={styles.macroText}>Protein: {data.protein}g</Text>
+        <Text style={styles.macroText}>
+          Protein: {macroData.protein}g / {macroData.proteinGoal}g
+        </Text>
         <Progress.Bar
-          progress={data.protein / data.proteinGoal}
+          progress={
+            macroData.protein /
+            Math.max(macroData.protein, macroData.proteinGoal)
+          }
           height={10}
           width={null}
           color="#FA8072"
@@ -26,10 +40,13 @@ const MacroBars = ({ data }) => {
 
       <View style={styles.macroContainer}>
         <Text style={styles.macroText}>
-          Carbohydrates: {data.carbohydrate}g
+          Carbohydrates: {macroData.carbohydrate}g / {macroData.carbGoal}g
         </Text>
         <Progress.Bar
-          progress={data.carbohydrate / data.carbGoal}
+          progress={
+            macroData.carbohydrate /
+            Math.max(macroData.carbohydrate, macroData.carbGoal)
+          }
           height={10}
           width={null}
           color="#3CB371"
@@ -37,9 +54,13 @@ const MacroBars = ({ data }) => {
       </View>
 
       <View style={styles.macroContainer}>
-        <Text style={styles.macroText}>Fats: {data.fats}g</Text>
+        <Text style={styles.macroText}>
+          Fats: {macroData.fats}g / {macroData.fatsGoal}g
+        </Text>
         <Progress.Bar
-          progress={data.fats / data.fatsGoal}
+          progress={
+            macroData.fats / Math.max(macroData.fats, macroData.fatsGoal)
+          }
           height={10}
           width={null}
           color="#FFD700"
