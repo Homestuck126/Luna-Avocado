@@ -31,8 +31,23 @@ const FriendsScreen = () => {
   };
 
   const handleAddFriend = (friendName) => {
-    console.log(friendName);
+    if (!friendName) {
+      Alert.alert(
+        "Friend name is empty",
+      );
+      return;
+    }
+  
     const _username = userContext.username;
+  
+    // Check if the friend is already in the Friends array
+    if (userContext.Friends.includes(friendName)) {
+      Alert.alert(
+        "They are already your friend",
+      );
+      return;
+    }
+    console.log(friendName);
 
     // Update local userContext
     const updatedUserContext = {
