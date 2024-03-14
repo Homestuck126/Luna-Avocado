@@ -1,3 +1,4 @@
+Please ensure that before you start this guide you have Node.js and NPM installed on your device
 # How to run our Expo Go app
 
 This guide will walk you through the installation process for Expo Go, a mobile app that allows you to preview and test your Expo projects directly on your iOS or Android device. Additionally, we'll provide instructions on running our app using Expo Go.
