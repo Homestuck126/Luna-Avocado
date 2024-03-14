@@ -21,11 +21,19 @@ Now that you have Expo Go installed on your device, let's run an example app usi
 1. Clone or download this repository.
 2. Navigate to the directory containing the example app code using your terminal or command prompt.
 3. Create a .env file with 
-```EXPO_PUBLIC_IPADDR = localhost
-MONGODB_URL = mongodb+srv://puckerfishy:tamagachi@cluster0.kbfgpln.mongodb.net/VirtualPetDatabase```
+```
+EXPO_PUBLIC_IPADDR = localhost
+MONGODB_URL = mongodb+srv://puckerfishy:tamagachi@cluster0.kbfgpln.mongodb.net/VirtualPetDatabase
+```
+localhost should be the ip address of your computer, and the MONGODB_URL should remain the same as in the example above. 
 4. Run `npm install` to install the project dependencies.
-5. Once the installation is complete, run `npm start`(or npx start) to start the Expo development server.
-6. A QR code will be generated in your terminal or command prompt(this might take a minute or three depending on your CPU).
-7. Open Expo Go on your mobile device and scan the QR code.
-8. Wait for Expo Go to load the project. Once loaded, you should see the example app running on your device.
+5. run 
+```
+node --env-file=.env .\src\services\server.js
+```
+to start the server.
+6. Once server is running, run `npm start`(or npx start) in the directory in another terminal to start the Expo development server.
+7. A QR code will be generated in your terminal or command prompt(this might take a minute or three depending on your CPU).
+8. Open Expo Go on your mobile device and scan the QR code.
+9. Wait for Expo Go to load the project. Once loaded, you should see the example app running on your device.
 
