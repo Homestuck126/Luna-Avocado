@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { View, Text, StyleSheet, ScrollView, Pressable } from "react-native";
-import { v4 as uuidv4 } from "uuid";
 
 import MacroBars from "../components/MacroBars";
 import FoodListItem from "../components/FoodListItem";
@@ -107,7 +106,6 @@ const MacroInputScreen = ({ currentUser }) => {
       };
 
       const newData = [...prevData, newFood];
-      //console.log("new food Item: ", newData);
       updateMacrosData(newData);
       return newData;
     });

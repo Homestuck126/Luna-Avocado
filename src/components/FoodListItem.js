@@ -14,6 +14,7 @@ const FoodListItem = ({ data, onPress, isPressable = true }) => {
         styles.container,
       ]}
       disabled={!isPressable}
+      testID="FoodListItem:ItemPressable"
     >
       <Text style={styles.name}>{data.name}</Text>
       <Text style={styles.macros}>Calories: {data.macros[0]}</Text>

@@ -50,6 +50,7 @@ const FoodItemModal = ({ isVisible, onClose, foodData }) => {
               onPress={() => {
                 closeModal();
               }}
+              testID="FoodItemModal:ClosePressable:Press"
             >
               <Text style={styles.modalText}>Close</Text>
             </Pressable>
