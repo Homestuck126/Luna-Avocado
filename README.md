@@ -26,14 +26,16 @@ EXPO_PUBLIC_IPADDR = localhost
 MONGODB_URL = mongodb+srv://puckerfishy:tamagachi@cluster0.kbfgpln.mongodb.net/VirtualPetDatabase
 ```
 localhost should be the ip address of your computer, and the MONGODB_URL should remain the same as in the example above. 
+
 4. Run `npm install` to install the project dependencies.
-5. run 
+5. 
 ```
 node --env-file=.env .\src\services\server.js
 ```
 to start the server.
+
 6. Once server is running, run `npm start`(or npx start) in the directory in another terminal to start the Expo development server.
+
 7. A QR code will be generated in your terminal or command prompt(this might take a minute or three depending on your CPU).
 8. Open Expo Go on your mobile device and scan the QR code.
 9. Wait for Expo Go to load the project. Once loaded, you should see the example app running on your device.
-
