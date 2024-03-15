@@ -20,6 +20,7 @@ const MacroBars = ({ data }) => {
           }
           height={10}
           width={null}
+          testID="MacroBars:ProgressBar:Calories"
         ></Progress.Bar>
       </View>
 
@@ -35,6 +36,7 @@ const MacroBars = ({ data }) => {
           height={10}
           width={null}
           color="#FA8072"
+          testID="MacroBars:ProgressBar:Protein"
         ></Progress.Bar>
       </View>
 
@@ -50,6 +52,7 @@ const MacroBars = ({ data }) => {
           height={10}
           width={null}
           color="#3CB371"
+          testID="MacroBars:ProgressBar:Carbs"
         ></Progress.Bar>
       </View>
 
@@ -64,6 +67,7 @@ const MacroBars = ({ data }) => {
           height={10}
           width={null}
           color="#FFD700"
+          testID="MacroBars:ProgressBar:Fats"
         ></Progress.Bar>
       </View>
     </View>

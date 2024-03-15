@@ -62,6 +62,7 @@ const SetFoodGoalsModal = ({
               textAlign="left"
               inputMode="numeric"
               onChangeText={(text) => handleInputChange(0, text)}
+              testID="SetFoodGoalsModal:CalorieTextInput:Change"
             />
           </View>
           <View style={styles.inputContainer}>
@@ -73,6 +74,7 @@ const SetFoodGoalsModal = ({
               textAlign="left"
               inputMode="numeric"
               onChangeText={(text) => handleInputChange(1, text)}
+              testID="SetFoodGoalsModal:ProteinTextInput:Change"
             />
           </View>
           <View style={styles.inputContainer}>
@@ -84,6 +86,7 @@ const SetFoodGoalsModal = ({
               textAlign="left"
               inputMode="numeric"
               onChangeText={(text) => handleInputChange(2, text)}
+              testID="SetFoodGoalsModal:CarbTextInput:Change"
             />
           </View>
           <View style={styles.inputContainer}>
@@ -95,6 +98,7 @@ const SetFoodGoalsModal = ({
               textAlign="left"
               inputMode="numeric"
               onChangeText={(text) => handleInputChange(3, text)}
+              testID="SetFoodGoalsModal:FatsTextInput:Change"
             />
           </View>
           <View style={styles.buttonContainer}>
@@ -111,6 +115,7 @@ const SetFoodGoalsModal = ({
               onPress={() => {
                 handleSubmit();
               }}
+              testID="SetFoodGoalsModal:SubmitPressable:Press"
             >
               <Text style={styles.modalText}>Submit</Text>
             </Pressable>
@@ -127,6 +132,7 @@ const SetFoodGoalsModal = ({
               onPress={() => {
                 closeModal();
               }}
+              testID="SetFoodGoalsModal:CancelPressable:Press"
             >
               <Text style={styles.modalText}>Cancel</Text>
             </Pressable>

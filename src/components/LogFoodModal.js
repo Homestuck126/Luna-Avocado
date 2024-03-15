@@ -11,10 +11,10 @@ import {
 const LogFoodModal = ({ isVisible, onClose, addFood }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [foodName, setFoodName] = useState("");
-  const [calories, setCalories] = useState(0);
-  const [protein, setProtein] = useState(0);
-  const [carbohydrates, setCarbohydrates] = useState(0);
-  const [fat, setFat] = useState(0);
+  const [calories, setCalories] = useState("");
+  const [protein, setProtein] = useState("");
+  const [carbohydrates, setCarbohydrates] = useState("");
+  const [fat, setFat] = useState("");
 
   useEffect(() => {
     setModalVisible(isVisible);
@@ -62,6 +62,7 @@ const LogFoodModal = ({ isVisible, onClose, addFood }) => {
             value={foodName}
             onChangeText={setFoodName}
             autoCapitalize="none"
+            testID="LogFoodModal:NameTextInput:Change"
           />
           <TextInput
             style={styles.input}
@@ -69,6 +70,7 @@ const LogFoodModal = ({ isVisible, onClose, addFood }) => {
             value={calories}
             onChangeText={setCalories}
             keyboardType="numeric"
+            testID="LogFoodModal:CalorieTextInput:Change"
           />
           <TextInput
             style={styles.input}
@@ -76,6 +78,7 @@ const LogFoodModal = ({ isVisible, onClose, addFood }) => {
             value={protein}
             onChangeText={setProtein}
             keyboardType="numeric"
+            testID="LogFoodModal:ProteinTextInput:Change"
           />
           <TextInput
             style={styles.input}
@@ -83,6 +86,7 @@ const LogFoodModal = ({ isVisible, onClose, addFood }) => {
             value={carbohydrates}
             onChangeText={setCarbohydrates}
             keyboardType="numeric"
+            testID="LogFoodModal:CarbTextInput:Change"
           />
           <TextInput
             style={styles.input}
@@ -90,6 +94,7 @@ const LogFoodModal = ({ isVisible, onClose, addFood }) => {
             value={fat}
             onChangeText={setFat}
             keyboardType="numeric"
+            testID="LogFoodModal:FatTextInput:Change"
           />
           <View style={styles.buttonContainer}>
             <Pressable
@@ -103,6 +108,7 @@ const LogFoodModal = ({ isVisible, onClose, addFood }) => {
                 },
               ]}
               onPress={handleSubmit}
+              testID="LogFoodModal:SubmitPressable:Press"
             >
               <Text style={styles.modalText}>Submit</Text>
             </Pressable>
@@ -119,6 +125,7 @@ const LogFoodModal = ({ isVisible, onClose, addFood }) => {
               onPress={() => {
                 closeModal();
               }}
+              testID="LogFoodModal:CancelPressable:Press"
             >
               <Text style={styles.modalText}>Cancel</Text>
             </Pressable>

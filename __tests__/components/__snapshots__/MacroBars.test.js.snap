@@ -1,0 +1,2695 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MacroBars MacroBars component Goals < current macros 1`] = `
+<View
+  style={
+    {
+      "borderBottomColor": "black",
+      "borderBottomWidth": 5,
+      "height": "25%",
+      "padding": 20,
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Calories: 
+      2000
+       / 
+      1000
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={1}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "rgba(0, 122, 255, 1)",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "rgba(0, 122, 255, 1)",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": 0,
+              },
+              {
+                "scaleX": 1,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Protein: 
+      200
+      g / 
+      100
+      g
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={1}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "#FA8072",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#FA8072",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": 0,
+              },
+              {
+                "scaleX": 1,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Carbohydrates: 
+      400
+      g / 
+      200
+      g
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={1}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "#3CB371",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#3CB371",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": 0,
+              },
+              {
+                "scaleX": 1,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Fats: 
+      100
+      g / 
+      50
+      g
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={1}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "#FFD700",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#FFD700",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": 0,
+              },
+              {
+                "scaleX": 1,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`MacroBars MacroBars component all values = 0 1`] = `
+<View
+  style={
+    {
+      "borderBottomColor": "black",
+      "borderBottomWidth": 5,
+      "height": "25%",
+      "padding": 20,
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Calories: 
+      0
+       / 
+      0
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={NaN}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "rgba(0, 122, 255, 1)",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "rgba(0, 122, 255, 1)",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": NaN,
+              },
+              {
+                "scaleX": NaN,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Protein: 
+      0
+      g / 
+      0
+      g
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={NaN}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "#FA8072",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#FA8072",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": NaN,
+              },
+              {
+                "scaleX": NaN,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Carbohydrates: 
+      0
+      g / 
+      0
+      g
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={NaN}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "#3CB371",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#3CB371",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": NaN,
+              },
+              {
+                "scaleX": NaN,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Fats: 
+      0
+      g / 
+      0
+      g
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={NaN}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "#FFD700",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#FFD700",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": NaN,
+              },
+              {
+                "scaleX": NaN,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`MacroBars MacroBars component snapshot 1`] = `
+<View
+  style={
+    {
+      "borderBottomColor": "black",
+      "borderBottomWidth": 5,
+      "height": "25%",
+      "padding": 20,
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Calories: 
+      200
+       / 
+      1000
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={0.2}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "rgba(0, 122, 255, 1)",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "rgba(0, 122, 255, 1)",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": 0.8,
+              },
+              {
+                "scaleX": 0.20008,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Protein: 
+      30
+      g / 
+      100
+      g
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={0.3}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "#FA8072",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#FA8072",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": 0.7,
+              },
+              {
+                "scaleX": 0.30007,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Carbohydrates: 
+      50
+      g / 
+      200
+      g
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={0.25}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "#3CB371",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#3CB371",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": 0.75,
+              },
+              {
+                "scaleX": 0.250075,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Fats: 
+      15
+      g / 
+      50
+      g
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={0.3}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "#FFD700",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#FFD700",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": 0.7,
+              },
+              {
+                "scaleX": 0.30007,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`MacroBars component Goals < current macros 1`] = `
+<View
+  style={
+    {
+      "borderBottomColor": "black",
+      "borderBottomWidth": 5,
+      "height": "25%",
+      "padding": 20,
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Calories: 
+      2000
+       / 
+      1000
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={1}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "rgba(0, 122, 255, 1)",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "rgba(0, 122, 255, 1)",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": 0,
+              },
+              {
+                "scaleX": 1,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Protein: 
+      200
+      g / 
+      100
+      g
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={1}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "#FA8072",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#FA8072",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": 0,
+              },
+              {
+                "scaleX": 1,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Carbohydrates: 
+      400
+      g / 
+      200
+      g
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={1}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "#3CB371",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#3CB371",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": 0,
+              },
+              {
+                "scaleX": 1,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Fats: 
+      100
+      g / 
+      50
+      g
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={1}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "#FFD700",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#FFD700",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": 0,
+              },
+              {
+                "scaleX": 1,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`MacroBars component all values = 0 1`] = `
+<View
+  style={
+    {
+      "borderBottomColor": "black",
+      "borderBottomWidth": 5,
+      "height": "25%",
+      "padding": 20,
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Calories: 
+      0
+       / 
+      0
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={NaN}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "rgba(0, 122, 255, 1)",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "rgba(0, 122, 255, 1)",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": NaN,
+              },
+              {
+                "scaleX": NaN,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Protein: 
+      0
+      g / 
+      0
+      g
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={NaN}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "#FA8072",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#FA8072",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": NaN,
+              },
+              {
+                "scaleX": NaN,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Carbohydrates: 
+      0
+      g / 
+      0
+      g
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={NaN}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "#3CB371",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#3CB371",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": NaN,
+              },
+              {
+                "scaleX": NaN,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Fats: 
+      0
+      g / 
+      0
+      g
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={NaN}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "#FFD700",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#FFD700",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": NaN,
+              },
+              {
+                "scaleX": NaN,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`MacroBars component snapshot 1`] = `
+<View
+  style={
+    {
+      "borderBottomColor": "black",
+      "borderBottomWidth": 5,
+      "height": "25%",
+      "padding": 20,
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Calories: 
+      200
+       / 
+      1000
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={0.2}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "rgba(0, 122, 255, 1)",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "rgba(0, 122, 255, 1)",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": 0.8,
+              },
+              {
+                "scaleX": 0.20008,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Protein: 
+      30
+      g / 
+      100
+      g
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={0.3}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "#FA8072",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#FA8072",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": 0.7,
+              },
+              {
+                "scaleX": 0.30007,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Carbohydrates: 
+      50
+      g / 
+      200
+      g
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={0.25}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "#3CB371",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#3CB371",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": 0.75,
+              },
+              {
+                "scaleX": 0.250075,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Fats: 
+      15
+      g / 
+      50
+      g
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={0.3}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "#FFD700",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#FFD700",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": 0.7,
+              },
+              {
+                "scaleX": 0.30007,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`MacroBars has correct progress for all bars when (0 < macro < goal 1`] = `
+<View
+  style={
+    {
+      "borderBottomColor": "black",
+      "borderBottomWidth": 5,
+      "height": "25%",
+      "padding": 20,
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Calories: 
+      200
+       / 
+      1000
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={0.2}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "rgba(0, 122, 255, 1)",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      testID="MacroBars:ProgressBar:Calories"
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "rgba(0, 122, 255, 1)",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": 0.8,
+              },
+              {
+                "scaleX": 0.20008,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Protein: 
+      30
+      g / 
+      100
+      g
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={0.3}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "#FA8072",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      testID="MacroBars:ProgressBar:Protein"
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#FA8072",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": 0.7,
+              },
+              {
+                "scaleX": 0.30007,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Carbohydrates: 
+      50
+      g / 
+      200
+      g
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={0.25}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "#3CB371",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      testID="MacroBars:ProgressBar:Carbs"
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#3CB371",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": 0.75,
+              },
+              {
+                "scaleX": 0.250075,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Fats: 
+      15
+      g / 
+      50
+      g
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={0.3}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "#FFD700",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      testID="MacroBars:ProgressBar:Fats"
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#FFD700",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": 0.7,
+              },
+              {
+                "scaleX": 0.30007,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`MacroBars has correct progress for all bars when (0 == macro < goal 1`] = `
+<View
+  style={
+    {
+      "borderBottomColor": "black",
+      "borderBottomWidth": 5,
+      "height": "25%",
+      "padding": 20,
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Calories: 
+      0
+       / 
+      1000
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={0}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "rgba(0, 122, 255, 1)",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      testID="MacroBars:ProgressBar:Calories"
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "rgba(0, 122, 255, 1)",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": 1,
+              },
+              {
+                "scaleX": 0.0001,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Protein: 
+      0
+      g / 
+      100
+      g
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={0}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "#FA8072",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      testID="MacroBars:ProgressBar:Protein"
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#FA8072",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": 1,
+              },
+              {
+                "scaleX": 0.0001,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Carbohydrates: 
+      0
+      g / 
+      200
+      g
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={0}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "#3CB371",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      testID="MacroBars:ProgressBar:Carbs"
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#3CB371",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": 1,
+              },
+              {
+                "scaleX": 0.0001,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Fats: 
+      0
+      g / 
+      50
+      g
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={0}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "#FFD700",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      testID="MacroBars:ProgressBar:Fats"
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#FFD700",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": 1,
+              },
+              {
+                "scaleX": 0.0001,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`MacroBars progress does not exceed 1 when macro > goal 1`] = `
+<View
+  style={
+    {
+      "borderBottomColor": "black",
+      "borderBottomWidth": 5,
+      "height": "25%",
+      "padding": 20,
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Calories: 
+      10
+       / 
+      1
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={1}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "rgba(0, 122, 255, 1)",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      testID="MacroBars:ProgressBar:Calories"
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "rgba(0, 122, 255, 1)",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": 0,
+              },
+              {
+                "scaleX": 1,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Protein: 
+      10
+      g / 
+      1
+      g
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={1}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "#FA8072",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      testID="MacroBars:ProgressBar:Protein"
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#FA8072",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": 0,
+              },
+              {
+                "scaleX": 1,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Carbohydrates: 
+      10
+      g / 
+      1
+      g
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={1}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "#3CB371",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      testID="MacroBars:ProgressBar:Carbs"
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#3CB371",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": 0,
+              },
+              {
+                "scaleX": 1,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "flex": 1,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontSize": 12,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Fats: 
+      10
+      g / 
+      1
+      g
+    </Text>
+    <View
+      animated={true}
+      animationConfig={
+        {
+          "bounciness": 0,
+        }
+      }
+      animationType="spring"
+      indeterminate={false}
+      indeterminateAnimationDuration={1000}
+      onLayout={[Function]}
+      progress={1}
+      style={
+        [
+          {
+            "backgroundColor": undefined,
+            "borderColor": "#FFD700",
+            "borderRadius": 4,
+            "borderWidth": 1,
+            "overflow": "hidden",
+            "width": null,
+          },
+          undefined,
+        ]
+      }
+      testID="MacroBars:ProgressBar:Fats"
+      useNativeDriver={false}
+    >
+      <View
+        collapsable={false}
+        style={
+          {
+            "backgroundColor": "#FFD700",
+            "height": 10,
+            "transform": [
+              {
+                "translateX": 0,
+              },
+              {
+                "translateX": 0,
+              },
+              {
+                "scaleX": 1,
+              },
+            ],
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;
