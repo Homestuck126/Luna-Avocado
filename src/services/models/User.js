@@ -22,6 +22,11 @@ const userSchema = new mongoose.Schema({
     type: Array,
     required: false
   },
+  lastReset: {
+    type: Date,
+    default: Date.now,
+    required: false
+  },
   calories: {
     type: Number,
     required: false
