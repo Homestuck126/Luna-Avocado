@@ -29,9 +29,13 @@ MONGODB_URL = mongodb+srv://puckerfishy:tamagachi@cluster0.kbfgpln.mongodb.net/V
 localhost should be the ip address of your computer, and the MONGODB_URL should remain the same as in the example above. 
 
 4. Run `npm install` to install the project dependencies.
-5. Run
+5. Run for Windows:
 ```
 node --env-file=.env .\src\services\server.js
+```
+or for Mac:
+```
+node --env-file=.env ./src/services/server.js
 ```
 in the directory to start the server.
 
