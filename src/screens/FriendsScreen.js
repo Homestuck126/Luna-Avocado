@@ -12,8 +12,11 @@ import ProfileListItem from "../components/ProfileListItem";
 import UserFetcher from "../components/UserFetcher";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
+import { useAuth } from "../contexts/Auth.js";
 
-const FriendsScreen = ({ currentUser }) => {
+const FriendsScreen = () => {
+  const { userContext, setUserContext } = useAuth(); // Destructure setUserContext
+  console.log(userContext);
   const [newFriendUserName, setNewFriendUserName] = useState();
 
   const IPADDR = process.env.EXPO_PUBLIC_IPADDR;
@@ -21,21 +24,53 @@ const FriendsScreen = ({ currentUser }) => {
   const navigation = useNavigation();
 
   const [selectedFriend, setSelectedFriend] = useState(null);
+  const [fetchTrigger, setFetchTrigger] = useState(false);
 
   const navigateToProfileScreen = (friend) => {
     navigation.navigate("FriendProfileDisplay", { friend });
   };
+
   const handleAddFriend = (friendName) => {
+    if (!friendName) {
+      Alert.alert(
+        "Friend name is empty",
+      );
+      return;
+    }
+  
+    const _username = userContext.username;
+  
+    // Check if the friend is already in the Friends array
+    if (userContext.Friends.includes(friendName)) {
+      Alert.alert(
+        "They are already your friend",
+      );
+      return;
+    }
     console.log(friendName);
-    const _username = currentUser.username;
+
+    // Update local userContext
+    const updatedUserContext = {
+      ...userContext,
+      Friends: [...userContext.Friends, friendName],
+    };
+
+    // Update userContext using the setUserContext function
+    setUserContext(updatedUserContext);
+
+    // Update the server data
     const updateData = { $push: { Friends: friendName } };
-    const IPADDR = process.env.EXPO_PUBLIC_IPADDR;
-    const temp = `http://` + IPADDR + `:3000/users/${_username}`;
-    //console.log(temp);
+    const temp = `http://${IPADDR}:3000/users/${_username}`;
+
     axios
       .patch(temp, updateData)
       .then((response) => {
-        Alert.alert("Friend added Successfully", "Your friend has been added");
+        Alert.alert(
+          "Registration Successful",
+          "You have been registered successfully"
+        );
+        setNewFriendUserName('');
+        setFetchTrigger((prev) => !prev);
       })
       .catch((error) => {
         Alert.alert(
@@ -45,14 +80,8 @@ const FriendsScreen = ({ currentUser }) => {
         console.log("register failed", error);
       });
   };
-
   return (
-    <ScrollView
-      contentContainerStyle={styles.container}
-      scrollIndicatorInsets={{ right: 1 }}
-      showsVerticalScrollIndicator={true}
-      indicatorStyle="black"
-    >
+    <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
@@ -71,10 +100,10 @@ const FriendsScreen = ({ currentUser }) => {
       >
         <Text style={styles.addButtonLabel}>Add Friend</Text>
       </TouchableOpacity>
-      <UserFetcher apiUrl={apiUrl} username={currentUser.username}>
+      <UserFetcher apiUrl={apiUrl} userContext={userContext} trigger={fetchTrigger}>
         {(friends, error) => (
           <>
-            <Text style={styles.header}>Friends of {currentUser.name}</Text>
+            <Text style={styles.header}>Friends of {userContext.username}</Text>
             {friends &&
               friends.map((friend) => (
                 <ProfileListItem

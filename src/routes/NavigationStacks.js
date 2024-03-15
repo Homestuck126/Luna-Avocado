@@ -58,7 +58,7 @@ export const AuthStack = () => {
 // Your existing FriendsStack component
 
 // ...
-export const FriendsStack = ({ currentUser }) => {
+export const FriendsStack = ({ userContext }) => {
   return (
     <Stack.Navigator
       initialRouteName="FriendsScreen"
@@ -68,7 +68,7 @@ export const FriendsStack = ({ currentUser }) => {
     >
       <Stack.Screen
         name="FriendsScreen"
-        component={() => <FriendsScreen currentUser={currentUser} />}
+        component={() => <FriendsScreen userContext={userContext} />}
         options={{
           headerShown: false,
         }}
