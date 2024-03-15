@@ -50,11 +50,13 @@ in the directory to start the server.
 2. Then, you log in with the previous usernames and password.
 3. You now have access to your profile. It shows your username and bio.
 4. Go to the top left corner and you can see a sidebar with profile, feed pet, and friends.
+### How to use Feed Pet
 5. Click Feed pet and you will see our Macro tracker, which has calories protiens carbohydrates and fats.
 6. In the middle there is log food, which allows us to log food with calories protiens carbohydrates and fats.
 7. When you click log food, you can input all the details of the food you ate.
 8. You can then click submit and the progress bars should update to the input.
 9. on the bottom, you should see your food log. (the edit has yet to be implemented)
+### How to use friends.
 10. You can go to friends as well.
 11. For example, you can add jalentest1(case sensitive)
 12. Now it should show their profile.
