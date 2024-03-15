@@ -1,0 +1,217 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FoodListItem calls onPress when isPressable == true 1`] = `
+<View
+  accessibilityState={
+    {
+      "busy": undefined,
+      "checked": undefined,
+      "disabled": false,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    [
+      {
+        "backgroundColor": "rgb(248,248,255)",
+      },
+      {
+        "alignItems": "flex-start",
+        "borderColor": "#C0C0C0",
+        "borderRadius": 10,
+        "borderWidth": 3,
+        "height": 120,
+        "margin": 10,
+        "padding": 10,
+        "width": "95%",
+      },
+    ]
+  }
+  testID="FoodListItem:ItemPressable"
+>
+  <Text
+    style={
+      {
+        "fontSize": 18,
+        "fontWeight": "bold",
+        "marginBottom": 5,
+      }
+    }
+  >
+    test food
+  </Text>
+  <Text
+    style={
+      {
+        "color": "#666",
+        "fontSize": 14,
+      }
+    }
+  >
+    Calories: 
+    2000
+  </Text>
+  <Text
+    style={
+      {
+        "color": "#666",
+        "fontSize": 14,
+      }
+    }
+  >
+    Protein: 
+    100
+  </Text>
+  <Text
+    style={
+      {
+        "color": "#666",
+        "fontSize": 14,
+      }
+    }
+  >
+    Carbs: 
+    90
+  </Text>
+  <Text
+    style={
+      {
+        "color": "#666",
+        "fontSize": 14,
+      }
+    }
+  >
+    Fat: 
+    80
+  </Text>
+</View>
+`;
+
+exports[`FoodListItem displays same info from data in Text components 1`] = `
+<View
+  accessibilityState={
+    {
+      "busy": undefined,
+      "checked": undefined,
+      "disabled": false,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    [
+      {
+        "backgroundColor": "rgb(248,248,255)",
+      },
+      {
+        "alignItems": "flex-start",
+        "borderColor": "#C0C0C0",
+        "borderRadius": 10,
+        "borderWidth": 3,
+        "height": 120,
+        "margin": 10,
+        "padding": 10,
+        "width": "95%",
+      },
+    ]
+  }
+  testID="FoodListItem:ItemPressable"
+>
+  <Text
+    style={
+      {
+        "fontSize": 18,
+        "fontWeight": "bold",
+        "marginBottom": 5,
+      }
+    }
+  >
+    test food
+  </Text>
+  <Text
+    style={
+      {
+        "color": "#666",
+        "fontSize": 14,
+      }
+    }
+  >
+    Calories: 
+    2000
+  </Text>
+  <Text
+    style={
+      {
+        "color": "#666",
+        "fontSize": 14,
+      }
+    }
+  >
+    Protein: 
+    100
+  </Text>
+  <Text
+    style={
+      {
+        "color": "#666",
+        "fontSize": 14,
+      }
+    }
+  >
+    Carbs: 
+    90
+  </Text>
+  <Text
+    style={
+      {
+        "color": "#666",
+        "fontSize": 14,
+      }
+    }
+  >
+    Fat: 
+    80
+  </Text>
+</View>
+`;

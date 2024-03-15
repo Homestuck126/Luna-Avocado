@@ -6,15 +6,16 @@ import {
   TextInput,
   View,
   SafeAreaView,
+  Alert,
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import axios from "axios";
-
+import { useNavigation } from "@react-navigation/native";
 
 const IPADDR = process.env.EXPO_PUBLIC_IPADDR;
 
-
 const RegistrationScreen = (props) => {
+  const navigation = useNavigation();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [userBio, setUserBio] = useState("");
@@ -23,38 +24,44 @@ const RegistrationScreen = (props) => {
     setShowPassword(!showPassword);
   };
 
-  const apiUrl =  "http://"+IPADDR+":3000/addUser";
+  const apiUrl = "http://" + IPADDR + ":3000/addUser";
   const handleSignup = async () => {
     const userData = {
-        name: "post test",
-        username: username,
-        password: password,
-        bio: userBio,
-        calories: 0,
-        protein: 0,
-        carbohydrate: 0,
-        fats: 0,
-        calorieGoal: 2000,
-        proteinGoal: 150,
-        carbGoal: 200,
-        fatsGoal: 50,
-        Friends: []
-      };
-      console.log(userData)
-      axios
-        .post(apiUrl, userData)
-        .then((response) => {
-            console.log("SUCCESS")
-         
-        })
-        .catch((error) => {
-          Alert.alert(
-            "Registration Fail",
-            "An error occurred during registration"
-          );
-          console.log("register failed", error);
-        });
+      name: username,
+      username: username,
+      password: password,
+      bio: userBio,
+      calories: 0,
+      protein: 0,
+      carbohydrate: 0,
+      fats: 0,
+      calorieGoal: 2000,
+      proteinGoal: 150,
+      carbGoal: 200,
+      fatsGoal: 50,
     };
+    console.log(userData);
+    axios
+      .post(apiUrl, userData)
+      .then((response) => {
+        Alert.alert("Registration Successful", "Redirecting to Login Screen", [
+          {
+            text: "Continue",
+            onPress: () => {
+              navigation.navigate("Login");
+            },
+          },
+        ]);
+        console.log("SUCCESS");
+      })
+      .catch((error) => {
+        Alert.alert(
+          "Registration Fail",
+          "An error occurred during registration"
+        );
+        console.log("register failed", error);
+      });
+  };
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.loginbox}>
@@ -103,7 +110,7 @@ const RegistrationScreen = (props) => {
       </View>
     </SafeAreaView>
   );
-}
+};
 
 export default RegistrationScreen;
 
