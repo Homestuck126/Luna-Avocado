@@ -1,5 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react-native";
 import LogFoodModal from "../../src/components/LogFoodModal";
+import "@testing-library/jest-native";
 
 describe("Log Food Modal", () => {
   it("calls onClose prop when Submit pressable is pressed", () => {

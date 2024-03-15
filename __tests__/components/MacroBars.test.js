@@ -1,5 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react-native";
+import "@testing-library/jest-native";
 import MacroBars from "../../src/components/MacroBars";
 
 describe("MacroBars", () => {

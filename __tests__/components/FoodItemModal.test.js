@@ -1,6 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react-native";
 import FoodItemModal from "../../src/components/FoodItemModal";
+import "@testing-library/jest-native";
 
 describe("Food Item Modal", () => {
   it("calls onClose prop when Close pressable is pressed", () => {

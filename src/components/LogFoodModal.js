@@ -11,10 +11,10 @@ import {
 const LogFoodModal = ({ isVisible, onClose, addFood }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [foodName, setFoodName] = useState("");
-  const [calories, setCalories] = useState(0);
-  const [protein, setProtein] = useState(0);
-  const [carbohydrates, setCarbohydrates] = useState(0);
-  const [fat, setFat] = useState(0);
+  const [calories, setCalories] = useState("");
+  const [protein, setProtein] = useState("");
+  const [carbohydrates, setCarbohydrates] = useState("");
+  const [fat, setFat] = useState("");
 
   useEffect(() => {
     setModalVisible(isVisible);

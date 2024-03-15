@@ -2,6 +2,7 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react-native";
 import SetFoodGoalsModal from "../../src/components/SetFoodGoalsModal";
 import LogFoodModal from "../../src/components/LogFoodModal";
+import "@testing-library/jest-native";
 
 describe("SetFoodGoalsModal", () => {
   it("calls onClose when Submit pressable is pressed", () => {

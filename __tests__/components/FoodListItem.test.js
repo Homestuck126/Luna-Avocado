@@ -1,6 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react-native";
 import FoodListItem from "../../src/components/FoodListItem";
+import "@testing-library/jest-native";
 
 describe("FoodListItem", () => {
   it("calls onPress when isPressable == true", () => {
