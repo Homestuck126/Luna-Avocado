@@ -53,6 +53,10 @@ const userSchema = new mongoose.Schema({
   fatsGoal: {
     type: Number,
     required: false
+  }, 
+  FoodItems:{
+    type: Array,
+    required: false
   }
 }, { versionKey: false });
 

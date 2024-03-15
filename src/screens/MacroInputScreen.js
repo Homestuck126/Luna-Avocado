@@ -51,6 +51,8 @@ const MacroInputScreen = ({ currentUser }) => {
 
   const updateMacrosData = (newFoodList) => {
     const _username = currentUser.username;
+    console.log("newFoodList");
+    console.log(newFoodList);
     const updatedMacrosData = newFoodList.reduce(
       (acc, foodItem) => {
         acc.calories += foodItem.macros[0];
@@ -66,6 +68,8 @@ const MacroInputScreen = ({ currentUser }) => {
         fats: 0,
       }
     );
+    console.log("newFoodList")
+    console.log(newFoodList[0].macros);
 
     setMacrosData((prevData) => ({
       ...prevData,
@@ -76,14 +80,34 @@ const MacroInputScreen = ({ currentUser }) => {
     }));
 
     console.log(_username);
+    //const macroFoodCombined = macrosData.concat(foodItems);
+    foodInfo = newFoodList[0].macros;
+    foodName= newFoodList[0].name
     axios
-      .patch(`http://localhost:3000/users/${_username}`, {
-        $set: {
-          protein: updatedMacrosData.protein,
-          carbohydrate: updatedMacrosData.carbohydrate,
-          fats: updatedMacrosData.fats,
-          calories: updatedMacrosData.calories,
-        },
+      .patch(`http://192.168.1.177:3000/users/${_username}`, {
+        $inc: {
+          protein: foodInfo[1],
+          carbohydrate: foodInfo[2],
+          fats: foodInfo[3],
+          calories: foodInfo[0],
+        }
+      })
+      .then((response) => {
+        Alert.alert("Macros Update Successful");
+        console.log("Macros data updated successfully:", response.data);
+      })
+      .catch((error) => {
+        Alert.alert(
+          "Macros Update Failed",
+          "An error occurred during macros goals update"
+        );
+        console.log("update failed", error);
+      });
+      axios
+      .patch(`http://192.168.1.177:3000/users/${_username}`, {
+        $push: {
+          FoodItems: foodName
+        }
       })
       .then((response) => {
         Alert.alert("Macros Update Successful");
@@ -99,6 +123,9 @@ const MacroInputScreen = ({ currentUser }) => {
   };
 
   const addFood = (item) => {
+    //console.log("prevData");
+    //console.log(prevData);
+
     setFoodItems((prevData) => {
       const newFood = {
         ...item,
