@@ -29,7 +29,7 @@ const MacroInputScreen = ({ currentUser }) => {
     carbGoal: currentUser.carbGoal,
     fatsGoal: currentUser.fatsGoal,
   });
-  const [foodItems, setFoodItems] = useState([]);
+  const [foodItems, setFoodItems] = useState(currentUser.FoodItems);
 
   const getMacroGoalsData = () => {
     return Object.keys(macrosData)
@@ -37,12 +37,33 @@ const MacroInputScreen = ({ currentUser }) => {
       .map((property) => macrosData[property]);
   };
   const updateMacroGoals = (newGoalsArray) => {
+    const _username = currentUser.username;
     setMacrosData((prevData) => {
       const newData = { ...prevData };
       const goalsToUpdate = Object.keys(newData).slice(-4);
       goalsToUpdate.forEach((property, index) => {
         newData[property] = newGoalsArray[index];
       });
+      axios
+        .patch(`http://${IPADDR}:3000/users/${_username}`, {
+          $set: {
+            calorieGoal: newGoalsArray[0],
+            proteinGoal: newGoalsArray[1],
+            carbGoal: newGoalsArray[2],
+            fatsGoal: newGoalsArray[3],
+          },
+        })
+        .then((response) => {
+          Alert.alert("Macros Update Successful");
+          console.log("Macros data updated successfully:", response.data);
+        })
+        .catch((error) => {
+          Alert.alert(
+            "Macros Update Failed",
+            "An error occurred during macros goals update"
+          );
+          console.log("update failed", error);
+        });
       //console.log("new data after updateMacroGoals() called from MacroInputScreen: ");
       //console.log(newData);
       return newData;
@@ -68,7 +89,7 @@ const MacroInputScreen = ({ currentUser }) => {
         fats: 0,
       }
     );
-    console.log("newFoodList")
+    console.log("newFoodList");
     console.log(newFoodList[0].macros);
 
     setMacrosData((prevData) => ({
@@ -82,15 +103,15 @@ const MacroInputScreen = ({ currentUser }) => {
     console.log(_username);
     //const macroFoodCombined = macrosData.concat(foodItems);
     foodInfo = newFoodList[0].macros;
-    foodName= newFoodList[0].name
+    foodName = newFoodList[0].name;
     axios
-      .patch(`http://192.168.1.177:3000/users/${_username}`, {
+      .patch(`http://${IPADDR}:3000/users/${_username}`, {
         $inc: {
           protein: foodInfo[1],
           carbohydrate: foodInfo[2],
           fats: foodInfo[3],
           calories: foodInfo[0],
-        }
+        },
       })
       .then((response) => {
         Alert.alert("Macros Update Successful");
@@ -103,11 +124,11 @@ const MacroInputScreen = ({ currentUser }) => {
         );
         console.log("update failed", error);
       });
-      axios
-      .patch(`http://192.168.1.177:3000/users/${_username}`, {
-        $push: {
-          FoodItems: foodName
-        }
+    axios
+      .patch(`http://${IPADDR}:3000/users/${_username}`, {
+        $set: {
+          FoodItems: newFoodList,
+        },
       })
       .then((response) => {
         Alert.alert("Macros Update Successful");
