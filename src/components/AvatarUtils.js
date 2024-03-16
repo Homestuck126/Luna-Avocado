@@ -24,9 +24,6 @@ const generateAvatar = (user) => {
   else if (totalGoal ==2 ) {
     _avatar = fatcat2;
   }
-  else if (totalGoal ==2 ) {
-    _avatar = fatcat2;
-  }
   else if (totalGoal ==1 ) {
     _avatar = thincat2;
   }
@@ -45,7 +42,7 @@ const generateAvatar = (user) => {
     id: user.id,
     name: user.name,
     bio: user.bio || "Default Bio",
-    avatar: isFatCat ? fatCatImages[randomIndex] : avatarImages[randomIndex],
+    avatar: _avatar
   };
 };
 

@@ -90,7 +90,7 @@ const MacroInputScreen = ({ currentUser }) => {
       }
     );
     console.log("newFoodList");
-    console.log(newFoodList[0].macros);
+    console.log(newFoodList);
 
     setMacrosData((prevData) => ({
       ...prevData,
@@ -102,8 +102,11 @@ const MacroInputScreen = ({ currentUser }) => {
 
     console.log(_username);
     //const macroFoodCombined = macrosData.concat(foodItems);
-    foodInfo = newFoodList[0].macros;
-    foodName = newFoodList[0].name;
+    foodInfo = newFoodList[newFoodList.length -1].macros;
+    foodName = newFoodList[newFoodList.length -1].name;
+    console.log("foodInfo");
+    console.log(foodInfo);
+
     axios
       .patch(`http://${IPADDR}:3000/users/${_username}`, {
         $inc: {
