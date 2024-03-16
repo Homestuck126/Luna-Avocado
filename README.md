@@ -29,17 +29,18 @@ MONGODB_URL = mongodb+srv://puckerfishy:tamagachi@cluster0.kbfgpln.mongodb.net/V
 localhost should be the ip address of your computer, and the MONGODB_URL should remain the same as in the example above. 
 
 4. Run `npm install` to install the project dependencies.
-5. Run for Windows:
-```
-node --env-file=.env .\src\services\server.js
-```
-or for Mac:
-```
-node --env-file=.env ./src/services/server.js
-```
-in the directory to start the server.
+5. At this point, we're ready to run both the SERVER (to connect to the database) and Expo Go (to simulate the project). 
+First, we will run the server. In your terminal, run this line to connect to the MongoDB server.
+  On Windows:
+  ```
+  node --env-file=.env .\src\services\server.js
+  ```
+  or for Mac:
+  ```
+  node --env-file=.env ./src/services/server.js
+  ```
 
-6. Once server is running, run `npm start`(or npx start) in the directory in another terminal to start the Expo development server.
+6. Once server is running, open another terminal instance and navigate to the project repository again. In here, run `npm start`(or npx start) to start the Expo development server.
 
 7. A QR code will be generated in your terminal or command prompt(this might take a minute or three depending on your CPU).
 8. Open Expo Go on your mobile device and scan the QR code.
