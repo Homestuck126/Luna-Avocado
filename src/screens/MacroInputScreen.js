@@ -8,9 +8,12 @@ import FoodItemModal from "../components/FoodItemModal";
 
 import SetFoodGoalsModal from "../components/SetFoodGoalsModal";
 import LogFoodModal from "../components/LogFoodModal";
+import { useAuth } from "../contexts/Auth.js";
+
 //import LoginScreen from "./LoginScreen";
 
-const MacroInputScreen = ({ currentUser }) => {
+const MacroInputScreen = () => {
+  const { userContext, setUserContext } = useAuth()
   const IPADDR = process.env.EXPO_PUBLIC_IPADDR;
   const apiUrls = "http://" + IPADDR + ":3000/users";
 
@@ -20,16 +23,16 @@ const MacroInputScreen = ({ currentUser }) => {
   const [foodGoalsModalVisible, setFoodGoalsModalVisible] = useState(false);
   const [logFoodModalVisible, setLogFoodModalVisible] = useState(false);
   const [macrosData, setMacrosData] = useState({
-    calories: currentUser.calories,
-    protein: currentUser.protein,
-    carbohydrate: currentUser.carbohydrate,
-    fats: currentUser.fats,
-    calorieGoal: currentUser.calorieGoal,
-    proteinGoal: currentUser.proteinGoal,
-    carbGoal: currentUser.carbGoal,
-    fatsGoal: currentUser.fatsGoal,
+    calories: userContext.calories,
+    protein: userContext.protein,
+    carbohydrate: userContext.carbohydrate,
+    fats: userContext.fats,
+    calorieGoal: userContext.calorieGoal,
+    proteinGoal: userContext.proteinGoal,
+    carbGoal: userContext.carbGoal,
+    fatsGoal: userContext.fatsGoal,
   });
-  const [foodItems, setFoodItems] = useState(currentUser.FoodItems);
+  const [foodItems, setFoodItems] = useState(userContext.FoodItems);
 
   const getMacroGoalsData = () => {
     return Object.keys(macrosData)
@@ -37,7 +40,7 @@ const MacroInputScreen = ({ currentUser }) => {
       .map((property) => macrosData[property]);
   };
   const updateMacroGoals = (newGoalsArray) => {
-    const _username = currentUser.username;
+    const _username = userContext.username;
     setMacrosData((prevData) => {
       const newData = { ...prevData };
       const goalsToUpdate = Object.keys(newData).slice(-4);
@@ -64,14 +67,30 @@ const MacroInputScreen = ({ currentUser }) => {
           );
           console.log("update failed", error);
         });
+      
+             // Update local userContext
+    const updatedUserContext = {
+      ...userContext,
+      proteinGoal: newGoalsArray[1],
+      carbGoal: newGoalsArray[2],
+      fatsGoal: newGoalsArray[3],
+      calorieGoal: newGoalsArray[0]
+    };
+
+    // Update userContext using the setUserContext function
+    setUserContext(updatedUserContext)
+    console.log("updatedUserContext");
+    console.log(userContext);
+
       //console.log("new data after updateMacroGoals() called from MacroInputScreen: ");
       //console.log(newData);
       return newData;
     });
+
   };
 
   const updateMacrosData = (newFoodList) => {
-    const _username = currentUser.username;
+    const _username = userContext.username;
     console.log("newFoodList");
     console.log(newFoodList);
     const updatedMacrosData = newFoodList.reduce(
@@ -144,6 +163,19 @@ const MacroInputScreen = ({ currentUser }) => {
         );
         console.log("update failed", error);
       });
+
+       // Update local userContext
+    const updatedUserContext = {
+      ...userContext,
+      protein: userContext.protein + foodInfo[1],
+      carbohydrate: userContext.carbohydrate+ foodInfo[2],
+      fats: userContext.fats + foodInfo[3],
+      calories: userContext.calories+ foodInfo[0],
+      FoodItems: newFoodList
+    };
+
+    // Update userContext using the setUserContext function
+    setUserContext(updatedUserContext)
   };
 
   const addFood = (item) => {

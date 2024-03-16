@@ -13,7 +13,7 @@ const generateAvatar = (user) => {
   const avatarImages = [thincat1, thincat2, thincat3, thincat4];
   const fatCatImages = [fatcat1, fatcat2, fatcat3, fatcat4];
   const proteinGoal = user.protein >= user.proteinGoal;
-  const fatGoal = (user.fat >= user.fatGoal)? 1:0;
+  const fatGoal = (user.fats >= user.fatsGoal)? 1:0;
   const carbGoal = (user.carbohydrate >= user.carbGoal) ? 1:0;
   const calorieGoal = (user.calories >= user.calorieGoal)? 1:0;
   const totalGoal = proteinGoal + fatGoal + carbGoal + calorieGoal;
