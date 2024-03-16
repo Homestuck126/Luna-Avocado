@@ -50,17 +50,25 @@ First, we will run the server. In your terminal, run this line to connect to the
 
 ## How to use our application
 1. Click Sign up, type in you username, password and bio. Make sure to remember your username and password.
+<img src="images/IMG_4431.PNG" alt="image" width="200" height="auto">
 2. Then, you log in with the previous usernames and password.
+<img src="images/IMG_4432.PNG" alt="image" width="200" height="auto">
 3. You now have access to your profile. It shows your username and bio.
+<img src="images/IMG_4433.PNG" alt="image" width="200" height="auto">
 4. Go to the top left corner and you can see a sidebar with profile, feed pet, and friends.
 ### How to use Feed Pet
 5. Click Feed pet and you will see our Macro tracker, which has calories protiens carbohydrates and fats.
+<img src="images/IMG_4434.PNG" alt="image" width="200" height="auto">
 6. In the middle there is log food, which allows us to log food with calories protiens carbohydrates and fats.
+<img src="images/IMG_4435.PNG" alt="image" width="200" height="auto">
 7. When you click log food, you can input all the details of the food you ate.
 8. You can then click submit and the progress bars should update to the input.
 9. on the bottom, you should see your food log. (the edit has yet to be implemented)
 ### How to use friends.
 10. You can go to friends as well.
+<img src="images/IMG_4436.jpg" alt="image" width="200" height="auto">
 11. For example, you can add jalentest1(case sensitive)
+<img src="images/IMG_4437.jpg" alt="image" width="200" height="auto">
 12. Now it should show their profile.
+
 13. You can click on the profile to enlarge it and show the information. 
