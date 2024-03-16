@@ -51,8 +51,9 @@ First, we will run the server. In your terminal, run this line to connect to the
 6. Once server is running, open another terminal instance and navigate to the project repository again. In here, run `npm start`(or npx start) to start the Expo development server.
 
 7. A QR code will be generated in your terminal or command prompt(this might take a minute or three depending on your CPU).
-8. Before scanning, please ensure your phone is on the same network as the computer you are running from.
-9. If you are using an iOS device/iPhone, simply open the camera app and scan the QR code. It will automatically redirect to Expo Go.
+  * If you're using iOS Simulator on laptop, instad of scanning a QR code please type `i` into terminal to run the simulator
+9. Before scanning, please ensure your phone is on the same network as the computer you are running from.
+10. If you are using an iOS device/iPhone, simply open the camera app and scan the QR code. It will automatically redirect to Expo Go.
    If you are on Android, open Expo Go and scan the QR code from there.
 12. Wait for Expo Go to load the project. Once loaded, you should see the example app running on your device.
 
