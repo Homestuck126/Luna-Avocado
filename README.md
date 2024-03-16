@@ -23,10 +23,10 @@ Now that you have Expo Go installed on your device, let's run an example app usi
 2. Navigate to the directory where you downloaded this repository using your terminal or command prompt.
 3. Create a .env file with 
 ```
-EXPO_PUBLIC_IPADDR = localhost
+EXPO_PUBLIC_IPADDR = <YOUR_IP_ADDRESS>
 MONGODB_URL = mongodb+srv://puckerfishy:tamagachi@cluster0.kbfgpln.mongodb.net/VirtualPetDatabase
 ```
-localhost should be the ip address of your computer, and the MONGODB_URL should remain the same as in the example above. 
+IMPORTANT: Be sure to replace <YOUR_IP_ADDRESS> with your IPv4 address if you want to emulate on your mobile device. If you wish to emulate on macOS, replace <YOUR_IP_ADDRESS> with localhost. The MONGODB_URL should remain the same as in the example above. 
 
 4. Run `npm install` to install the project dependencies.
 5. At this point, we're ready to run both the SERVER (to connect to the database) and Expo Go (to simulate the project). 
@@ -43,8 +43,10 @@ First, we will run the server. In your terminal, run this line to connect to the
 6. Once server is running, open another terminal instance and navigate to the project repository again. In here, run `npm start`(or npx start) to start the Expo development server.
 
 7. A QR code will be generated in your terminal or command prompt(this might take a minute or three depending on your CPU).
-8. Open Expo Go on your mobile device and scan the QR code.
-9. Wait for Expo Go to load the project. Once loaded, you should see the example app running on your device.
+8. Before scanning, please ensure your phone is on the same network as the computer you are running from.
+9. If you are using an iOS device/iPhone, simply open the camera app and scan the QR code. It will automatically redirect to Expo Go.
+   If you are on Android, open Expo Go and scan the QR code from there.
+12. Wait for Expo Go to load the project. Once loaded, you should see the example app running on your device.
 
 ## How to use our application
 1. Click Sign up, type in you username, password and bio. Make sure to remember your username and password.
