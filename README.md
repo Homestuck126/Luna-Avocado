@@ -20,7 +20,7 @@ This guide will walk you through the installation process for Expo Go, a mobile 
 Now that you have Expo Go installed on your device, let's run an example app using Expo Go.
 
 1. Clone or download this repository.
-2. Navigate to the directory containing the example app code using your terminal or command prompt.
+2. Navigate to the directory where you downloaded this repository using your terminal or command prompt.
 3. Create a .env file with 
 ```
 EXPO_PUBLIC_IPADDR = localhost
