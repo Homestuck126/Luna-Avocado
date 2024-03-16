@@ -9,6 +9,14 @@ This guide will walk you through the installation process for Expo Go, a mobile 
 
 1. Install Expo Go from the App Store by searching for "Expo Go" or by visiting [Expo Go on the App Store](https://apps.apple.com/us/app/expo-go/id982107779).
 2. Once installed, you're ready to proceed to running your Expo project.
+3. Disclaimer: some IOS models don't work. If that is the case, please install IOS simulator on your laptop. Instructions will be below
+#### iOS Simulator 
+1) go to the appstore
+2) search for Xcode
+3) download
+4) once fully downloaded, there should be an option to download iOS simluator
+5) Follow these directions: [https://developer.apple.com/documentation/safari-developer-tools/adding-additional-simulators]
+6) In your .env file, please change `EXPO_PUBLIC_IPADDR = localhost`
 
 ### Android
 
