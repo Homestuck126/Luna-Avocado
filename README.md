@@ -34,7 +34,7 @@ Now that you have Expo Go installed on your device, let's run an example app usi
 EXPO_PUBLIC_IPADDR = <YOUR_IP_ADDRESS>
 MONGODB_URL = mongodb+srv://puckerfishy:tamagachi@cluster0.kbfgpln.mongodb.net/VirtualPetDatabase
 ```
-IMPORTANT: Be sure to replace <YOUR_IP_ADDRESS> with your IPv4 address if you want to emulate on your mobile device. If you wish to emulate on macOS, replace <YOUR_IP_ADDRESS> with localhost. The MONGODB_URL should remain the same as in the example above. 
+IMPORTANT: Be sure to replace <YOUR_IP_ADDRESS> with your IPv4 address if you want to emulate on your mobile device. If you wish to use your iOS Simulator on your laptop replace <YOUR_IP_ADDRESS> with localhost. The MONGODB_URL should remain the same as in the example above. 
 
 4. Run `npm install` to install the project dependencies.
 5. At this point, we're ready to run both the SERVER (to connect to the database) and Expo Go (to simulate the project). 
