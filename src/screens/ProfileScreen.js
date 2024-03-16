@@ -5,6 +5,7 @@ import { View, Text, Image, StyleSheet } from "react-native";
 import { generateAvatar } from "../components/AvatarUtils"; // Adjust the path accordingly
 
 const ProfileScreen = ({ user }) => {
+  console.log("profile screen");
   console.log(user)
   const userProfile = generateAvatar(user);
 
