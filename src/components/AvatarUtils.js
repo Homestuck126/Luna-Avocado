@@ -30,7 +30,7 @@ const generateAvatar = (user) => {
   else if (totalGoal ==1 ) {
     _avatar = thincat2;
   }
-  else if (totalGoal ==1 ) {
+  else if (totalGoal ==0 ) {
     _avatar = thincat1;
   }
   const isFatCat = user.calories + user.protein + user.fat + user.carbohydrate > 50;
