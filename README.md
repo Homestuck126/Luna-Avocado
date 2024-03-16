@@ -73,6 +73,7 @@ First, we will run the server. In your terminal, run this line to connect to the
 7. When you click log food, you can input all the details of the food you ate.
 8. You can then click submit and the progress bars should update to the input.
 9. on the bottom, you should see your food log. (the edit has yet to be implemented)
+* All data will be reset to 0 at 8am everyday
 ### How to use friends.
 10. You can go to friends as well.
 <img src="images/IMG_4436.jpg" alt="image" width="200" height="auto">
